@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tech,vim,OS," />
+  <meta name="keywords" content="Travel,Chicago,U.S.," />
 
 
 
@@ -94,20 +94,18 @@
 
 
 
-<meta name="description" content="要求写两个进程A跟BA：无限循环输出一个字符B：入侵进程A，改变输出的字符">
-<meta name="keywords" content="tech,vim,OS">
+<meta name="description" content="图片稍后更新。 时间回到2016年11月22日 经过pitzker park的时候看到了black gang，附近有警察牵着警犬在搜查，空中有直升飞机在巡逻。 我进了芝加哥的harold图书馆，在三楼等电梯上顶层九楼。顶层是花园式的学习室，天花很高的玻璃，里面还有一个啤酒博物馆，讲解如何制作啤酒，演示生动有趣，用了小麦和酵母。">
+<meta name="keywords" content="Travel,Chicago,U.S.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="#CentOS on Mac#3.进程通信 ">
-<meta property="og:url" content="http://www.yisiqiu.com/2016/07/27/CentOS-on-Mac-3-进程通信/index.html">
+<meta property="og:title" content="芝加哥感恩节游记2.0">
+<meta property="og:url" content="http://www.yisiqiu.com/2016/11/22/芝加哥感恩节游记2-0/index.html">
 <meta property="og:site_name" content="Izzy Notes">
-<meta property="og:description" content="要求写两个进程A跟BA：无限循环输出一个字符B：入侵进程A，改变输出的字符">
+<meta property="og:description" content="图片稍后更新。 时间回到2016年11月22日 经过pitzker park的时候看到了black gang，附近有警察牵着警犬在搜查，空中有直升飞机在巡逻。 我进了芝加哥的harold图书馆，在三楼等电梯上顶层九楼。顶层是花园式的学习室，天花很高的玻璃，里面还有一个啤酒博物馆，讲解如何制作啤酒，演示生动有趣，用了小麦和酵母。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.blog.csdn.net/20160727214907807">
-<meta property="og:updated_time" content="2017-10-19T15:32:05.000Z">
+<meta property="og:updated_time" content="2017-10-19T16:02:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="#CentOS on Mac#3.进程通信 ">
-<meta name="twitter:description" content="要求写两个进程A跟BA：无限循环输出一个字符B：入侵进程A，改变输出的字符">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160727214907807">
+<meta name="twitter:title" content="芝加哥感恩节游记2.0">
+<meta name="twitter:description" content="图片稍后更新。 时间回到2016年11月22日 经过pitzker park的时候看到了black gang，附近有警察牵着警犬在搜查，空中有直升飞机在巡逻。 我进了芝加哥的harold图书馆，在三楼等电梯上顶层九楼。顶层是花园式的学习室，天花很高的玻璃，里面还有一个啤酒博物馆，讲解如何制作啤酒，演示生动有趣，用了小麦和酵母。">
 
 
 
@@ -136,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yisiqiu.com/2016/07/27/CentOS-on-Mac-3-进程通信/"/>
+  <link rel="canonical" href="http://www.yisiqiu.com/2016/11/22/芝加哥感恩节游记2-0/"/>
 
 
 
 
 
-  <title>#CentOS on Mac#3.进程通信  | Izzy Notes</title>
+  <title>芝加哥感恩节游记2.0 | Izzy Notes</title>
   
 
 
@@ -275,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yisiqiu.com/2016/07/27/CentOS-on-Mac-3-进程通信/">
+    <link itemprop="mainEntityOfPage" href="http://www.yisiqiu.com/2016/11/22/芝加哥感恩节游记2-0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Izzy Qiu">
@@ -292,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">#CentOS on Mac#3.进程通信 </h1>
+          <h1 class="post-title" itemprop="name headline">芝加哥感恩节游记2.0</h1>
         
 
         <div class="post-meta">
@@ -304,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-27T21:49:40+08:00">
-                2016-07-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-22T23:39:48+08:00">
+                2016-11-22
               </time>
             
 
@@ -327,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/Travel/" itemprop="url" rel="index">
+                    <span itemprop="name">Travel</span>
                   </a>
                 </span>
 
@@ -364,27 +362,47 @@
       
 
       
-        <p><strong>要求</strong>写两个进程A跟B<br>A：无限循环输出一个字符<br>B：入侵进程A，改变输出的字符</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#include &lt;sys/types.h&gt;</div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    pid_t pid;  //进程号</div><div class="line">    char *message;</div><div class="line">    int n;</div><div class="line">    printf(&quot;Process starting\n&quot;);</div><div class="line">    pid = fork();</div><div class="line">    switch(pid)</div><div class="line">    &#123;</div><div class="line">    case -1:</div><div class="line">        perror(&quot;failed&quot;);</div><div class="line">        exit(1);</div><div class="line">    case 0:</div><div class="line">        message = &quot;Process A&quot;;</div><div class="line">        n = 10; //循环10次</div><div class="line">        break;</div><div class="line">    default:</div><div class="line">        message = &quot;Process B&quot;; //父进程</div><div class="line">        n = 4;</div><div class="line">        break;</div><div class="line">    &#125;</div><div class="line">    while(1) &#123;</div><div class="line">        puts(message);</div><div class="line">        sleep(1); //1s</div><div class="line">    &#125;</div><div class="line">    exit(0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>gcc -o process process.c<br>./process</p>
-<blockquote>
-<p>ctrl+c 退出死循环</p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20160727214907807" alt="这里写图片描述"></p>
-<p><strong>1.进程B可以破坏隔离性，修改进程A输出的原因</strong></p>
-<p> 调用fork可以创建一个全新的进程。<br> 这个系统调用对当前进程进行复制。在进程表里创建一个新的项目，许多属性与当前进程是相同的。新进程和原进程几乎一模一样，执行的也是相同的代码，但新进程有自己的数据空间、自己的环境等。</p>
-<blockquote>
-<p>程序调用了fork函数的时候被分成了两个进程。在父进程里，fork函数返回新进程的PID进程号，新进程则返回0，这个可以做为区分父子进程的依据。</p>
-</blockquote>
-<p><strong>2.进程通信的作用</strong></p>
-<p>(1)数据传输：一个进程需要将它的数据发送给另一个进程<br>(2)共享数据：一个进程对共享数据的修改，别的进程应该立刻看到。<br>(3)通知事件：一个进程需要向另一个或一组进程发送消息，通知它（它们）发生了某种事件（如进程终止时要通知父进程）。<br>(4)资源共享：多个进程之间共享同样的资源，需要内核提供锁和同步机制。<br>(5)进程控制：有些进程希望完全控制另一个进程的执行（如Debug进程），此时控制进程希望能够拦截另一个进程的所有陷入和异常，并能够及时知道它的状态改变。</p>
-<p><strong>3.隔离性与通信的平衡</strong></p>
-<p>操作系统中，进程间是相互不可见的。操作系统在逻辑上将每个进程隔离开了。一个进程里是不可能看到真实的物理内存地址的。内存地址，都是虚拟内存地址，而不是真实的物理内存地址。每个进程的虚拟内存地址都是一样大的</p>
-<p>进程间的内存相互隔绝，防止进程间的相互干扰。<br>假如A进程在操作一个内存时，B进程无意中程序执行出错，改写了A的进程的内存，A进程就很可能崩溃，从而造成了破坏。这也是保护各个进程的安全的一个手段。同时，操作系统也是有各种进程组成的。<br>系统的进程同样也会被其他进程进行破坏，既保护了用户程序安全，更是保护了操作系统本身，使操作系统变得很健壮。因为程序的操作都是在自己的虚拟地址空间中执行的，系统内部在执行时，总是可以将虚拟内存地址映射到进程的实际的内存地址区间而不会越界，从而避免了内存破坏问题。</p>
-<p>(1) <strong>将进程相互隔绝，才会出现各种各样的通信机制。</strong><br>比如内存映射文件，将一个文件打开，作为通信中介，然后将这文件作为内核对象，分配一个句柄，这个是公用的文件，而这个句柄，是系统全部进程都可以看到的，并且看到的都是同一个，然后通过向系统请求，得到访问这个内核对象的句柄就可以操作了。操作完后，其他进程才可以操作，这个是“进程间的互斥”。而通过这种方式就可以更改公共的变量，达到通信的目的。而这个通信的过程就是内存映射文件模式。内核文件作为一个中介，让相互看不见的进程可以相互交换数据。</p>
-<p>(2) <strong>管道，邮槽则也是通过消息信件机制，通过系统投递给进程的。</strong><br>进程只要接受这个信件即可，然后了解情况后再发送信件。系统成为了信使。这样也达到通信的机制。</p>
-<p>这些也就解决了进程间相互不能通信的问题，也保证进程间相互隔绝后的安全。</p>
+        <p>图片稍后更新。</p>
+<p>时间回到2016年11月22日</p>
+<p>经过pitzker park的时候看到了black gang，附近有警察牵着警犬在搜查，空中有直升飞机在巡逻。</p>
+<p>我进了芝加哥的harold图书馆，在三楼等电梯上顶层九楼。顶层是花园式的学习室，天花很高的玻璃，里面还有一个啤酒博物馆，讲解如何制作啤酒，演示生动有趣，用了小麦和酵母。</p>
+ <a id="more"></a>
+<p>回去state street的时候看到了jordan（鞋子啦），芝加哥也是跟乔丹相联系的一个地方。</p>
+<p>走到了chicago board of trade，据说是变形金刚的拍摄地，建筑还是很有趣的，旁边还贴了刚上映的神奇动物在哪里的海报。</p>
+<p>michigan大道以南也有一间macy（有一个笑话是我跟同学打电话我们都是在macy找了半天没找到，其实她是在北michigan的macy）。macy的圣诞橱窗非常有名，动态的小玩偶吸引了许多小朋友拍照，各种化妆品衣服也在疯狂打折。</p>
+<p>经过的chiacago theater可惜没有看一场演出。</p>
+<p>abc new正好在做直播，许多路人在玻璃窗围观，主持人也热情的打招呼。</p>
+<p>晚饭想去深盘pizza uno那里解决，要等45分钟，建议早点去</p>
+<p>michigan大道横向的街道是以erie ohio命名的，十分有趣。晚饭我们去吃了shake shack，一百万个推荐。</p>
+<p>因为我的6s电池故障，所以我还得去apple store排队修理，一个小时后被告知电池售罄。</p>
+<p>路过了billy tavern，著名的billy goat诅咒，并不是很多人，小熊队今年也拿了冠军，上一年可是royals的。</p>
+<p>11/23</p>
+<p>下雨了，起了个大早去了华丽一英里，wrigley building有一棵超大的圣诞树，culture center旁边有林肯像，再旁边就是nbc</p>
+<p>有特色的是tribune tower都是用老旧的砖，密歇根大道也有分两层，下面有点可怕（许多流浪汉聚居）。一路往旁边走是fire department，aon，那一段风超级大</p>
+<p>我又走到了千禧公园，millennium park，走很长一条步道经过maggie daley park，很大的草坪，还有露天舞台pertrillo music shell（大概是音乐节用的）经过grant park就到了Buckingham fountain啦，夏天才喷水</p>
+<p>旁边是lake front，能远眺adler和shedd，有许多鹅很认真在吃草，人们在跑步，互不干扰。</p>
+<p>路过了沙滩，navy pier，看到了flash的大海报，还有cubs pub</p>
+<p>买了超好吃的garret popcorns 我买的caramel和cheese混合超好吃</p>
+<p>走到了river north本来想吃有名的als beef，结果店很小里面挤了很多人我就放弃了</p>
+<p>改去吃了portillos hotdog，芝加哥热狗相当有名，因为里面有指天椒，芹菜，酸黄瓜还有芝麻包。</p>
+<p>回去经过了saks fifth，nordstrom，forever 21，nike还有neiman Marcus</p>
+<p>晚饭跟高中同学约了深盘pizza，经过了holy name cathedral，loyola和old water tower，还和圣诞树合了照。在topshop和uniqlo的顶层还有Starbucks</p>
+<p>晚饭在pizzano 吃了pasta和pizza，超级greasy，餐厅很小但很多人</p>
+<p>回去的时候看cloud gate的人滑冰听到了中国的歌曲，在马路上看到游客骑马观光，那匹马还会等红灯</p>
+<p>11/24</p>
+<p>感恩节大游行，麦当劳冠名的，state street封路了停了很多schoolbus，是marching band用吧</p>
+<p>从harnold 到state</p>
+<p>看到很多人一早占座带着毯子的还有凳子在macy前面</p>
+<p>游行的有马，还有警察开路，工作人员用火鸡垃圾桶清理马留下来的。。</p>
+<p>还有大型火鸡玩偶麦当劳叔叔，据说纽约还有皮卡丘。还有小朋友骑着小驴，小马，一只小狗带着小熊队的帽子，还有少数族裔。</p>
+<p>伊利诺伊小姐，芝加哥小姐，shameless演员，著名的厨师，还有garret的free popcorn，中世纪的战士，星球大战，高中的marching band。还有jack船长，还有美猴王和功夫。游行结束后，工作人员忙着清洁。</p>
+<p>cultural center因为假期关门了，我们去了minghin排了一小时队，真的十分正宗的早茶。粥是软的，捞面，牛百叶，百香果椰果红茶。</p>
+<p>我们登上了360 chicago，东面是navy西面，南面是海滩，北面林肯公园，和willis，我挖了一个wingfield 的penny，cocktail25刀。还见到了homeless的veteran，很多人给他们饭跟他们说happy thanksgiving</p>
+<p>11/25</p>
+<p>最后一天在芝加哥，走了riverwalk，走到了adler和sheddd，看到了著名的karlo kim热狗，但已经不想吃了。adler的天际线是真的很美，跑步的人和我互相拍照。</p>
+<p>als beef非常辣，墨西哥感觉。</p>
+<p>最后买了小熊队的beanie</p>
+<p>还是不错的芝加哥！最后习惯了和homeless早上热情的好，他们也不会硬要钱。还会热情的跟你说have a nice day</p>
 
       
     </div>
@@ -402,11 +420,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/tech/" rel="tag"># tech</a>
+            <a href="/tags/Travel/" rel="tag"># Travel</a>
           
-            <a href="/tags/vim/" rel="tag"># vim</a>
+            <a href="/tags/Chicago/" rel="tag"># Chicago</a>
           
-            <a href="/tags/OS/" rel="tag"># OS</a>
+            <a href="/tags/U-S/" rel="tag"># U.S.</a>
           
         </div>
       
@@ -419,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/27/2016开发热点词儿/" rel="next" title="2016开发热点词儿">
-                <i class="fa fa-chevron-left"></i> 2016开发热点词儿
+              <a href="/2016/08/01/CentOS-on-Mac-5-OpenVSwitch＋mininet/" rel="next" title="#CentOS on Mac#5.OpenVSwitch＋mininet ">
+                <i class="fa fa-chevron-left"></i> #CentOS on Mac#5.OpenVSwitch＋mininet 
               </a>
             
           </div>
@@ -429,8 +447,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/27/CentOS-on-Mac-4-WebBench测试TinyHttpd/" rel="prev" title="#CentOS on Mac#4.WebBench测试TinyHttpd ">
-                #CentOS on Mac#4.WebBench测试TinyHttpd  <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/27/生活不只有诗和远方，还有深盘和爆米花1-0/" rel="prev" title="生活不只有诗和远方，还有深盘和爆米花1.0">
+                生活不只有诗和远方，还有深盘和爆米花1.0 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
