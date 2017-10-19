@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tech,Linux,MacBook,Ubuntu,Swift,Perfect," />
+  <meta name="keywords" content="tech,vim,OS,gcc," />
 
 
 
@@ -94,22 +94,26 @@
 
 
 
-<meta name="description" content="本周任务：让swift在linux上跑起来  在MacBook Pro Retina上装LinuxParallels + Ubuntu 14.04 在Linux上安装Swift   ##Parallels + Ubuntu 14.04  虚拟机 or Bootcamp?  －虚拟机优点：不需要重启切换系统；可以安装多个系统；不需要分区等等。最酷炫的就是两个系统同时出现在桌面 －虚拟机缺点：不适合大">
-<meta name="keywords" content="tech,Linux,MacBook,Ubuntu,Swift,Perfect">
+<meta name="description" content="实验要求：1.加入系统调用，在终端输出信息2.编写用户态程序，运行输出 实验步骤1.修改实验一的源码终端进入 1/usr/src/linux-4.6.4/usr/include/asm/unistd_64.h 这里64是64位，32位应为32 2.修改系统调用号define __NR_yssyscall 329 查询系统调用号，不同的系统号不同，应该为未使用过的 3.简单起见按照第一篇文章的函数修">
+<meta name="keywords" content="tech,vim,OS,gcc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu on Mac">
-<meta property="og:url" content="http://www.yisiqiu.com/2016/04/08/Swift-Ubuntu-on-Mac/index.html">
+<meta property="og:title" content="#CentOS on Mac#2.加入系统调用 ">
+<meta property="og:url" content="http://www.yisiqiu.com/2016/07/27/CentOS-on-Mac-2-加入系统调用/index.html">
 <meta property="og:site_name" content="Izzy Notes">
-<meta property="og:description" content="本周任务：让swift在linux上跑起来  在MacBook Pro Retina上装LinuxParallels + Ubuntu 14.04 在Linux上安装Swift   ##Parallels + Ubuntu 14.04  虚拟机 or Bootcamp?  －虚拟机优点：不需要重启切换系统；可以安装多个系统；不需要分区等等。最酷炫的就是两个系统同时出现在桌面 －虚拟机缺点：不适合大">
+<meta property="og:description" content="实验要求：1.加入系统调用，在终端输出信息2.编写用户态程序，运行输出 实验步骤1.修改实验一的源码终端进入 1/usr/src/linux-4.6.4/usr/include/asm/unistd_64.h 这里64是64位，32位应为32 2.修改系统调用号define __NR_yssyscall 329 查询系统调用号，不同的系统号不同，应该为未使用过的 3.简单起见按照第一篇文章的函数修">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.blog.csdn.net/20160408222902434">
-<meta property="og:image" content="http://img.blog.csdn.net/20160409074103801">
-<meta property="og:image" content="http://img.blog.csdn.net/20160409074921733">
-<meta property="og:updated_time" content="2017-10-19T15:16:09.000Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20160727120112763">
+<meta property="og:image" content="http://img.blog.csdn.net/20160727122656533">
+<meta property="og:image" content="http://img.blog.csdn.net/20160727122801185">
+<meta property="og:image" content="http://img.blog.csdn.net/20160727122818723">
+<meta property="og:image" content="http://img.blog.csdn.net/20160727122828638">
+<meta property="og:image" content="http://img.blog.csdn.net/20160727122929358">
+<meta property="og:image" content="http://img.blog.csdn.net/20160727123415935">
+<meta property="og:updated_time" content="2017-10-19T15:23:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu on Mac">
-<meta name="twitter:description" content="本周任务：让swift在linux上跑起来  在MacBook Pro Retina上装LinuxParallels + Ubuntu 14.04 在Linux上安装Swift   ##Parallels + Ubuntu 14.04  虚拟机 or Bootcamp?  －虚拟机优点：不需要重启切换系统；可以安装多个系统；不需要分区等等。最酷炫的就是两个系统同时出现在桌面 －虚拟机缺点：不适合大">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160408222902434">
+<meta name="twitter:title" content="#CentOS on Mac#2.加入系统调用 ">
+<meta name="twitter:description" content="实验要求：1.加入系统调用，在终端输出信息2.编写用户态程序，运行输出 实验步骤1.修改实验一的源码终端进入 1/usr/src/linux-4.6.4/usr/include/asm/unistd_64.h 这里64是64位，32位应为32 2.修改系统调用号define __NR_yssyscall 329 查询系统调用号，不同的系统号不同，应该为未使用过的 3.简单起见按照第一篇文章的函数修">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160727120112763">
 
 
 
@@ -138,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yisiqiu.com/2016/04/08/Swift-Ubuntu-on-Mac/"/>
+  <link rel="canonical" href="http://www.yisiqiu.com/2016/07/27/CentOS-on-Mac-2-加入系统调用/"/>
 
 
 
 
 
-  <title>Ubuntu on Mac | Izzy Notes</title>
+  <title>#CentOS on Mac#2.加入系统调用  | Izzy Notes</title>
   
 
 
@@ -277,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yisiqiu.com/2016/04/08/Swift-Ubuntu-on-Mac/">
+    <link itemprop="mainEntityOfPage" href="http://www.yisiqiu.com/2016/07/27/CentOS-on-Mac-2-加入系统调用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Izzy Qiu">
@@ -294,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu on Mac</h1>
+          <h1 class="post-title" itemprop="name headline">#CentOS on Mac#2.加入系统调用 </h1>
         
 
         <div class="post-meta">
@@ -306,8 +310,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-08T23:23:26+08:00">
-                2016-04-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-27T12:15:22+08:00">
+                2016-07-27
               </time>
             
 
@@ -329,8 +333,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tech/" itemprop="url" rel="index">
-                    <span itemprop="name">Tech</span>
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
                   </a>
                 </span>
 
@@ -366,193 +370,48 @@
       
 
       
-        <p>本周任务：让swift在linux上跑起来</p>
-<ul>
-<li><strong>在MacBook Pro Retina上装Linux</strong><br>Parallels + Ubuntu 14.04</li>
-<li><strong>在Linux上安装Swift</strong></li>
-</ul>
-<hr>
-<p>##Parallels + Ubuntu 14.04</p>
-<ul>
-<li>虚拟机 or Bootcamp?</li>
-</ul>
-<p>－虚拟机<strong>优点</strong>：不需要重启切换系统；可以安装多个系统；不需要分区等等。最酷炫的就是两个系统同时出现在桌面<br> －虚拟机<strong>缺点</strong>：不适合大型游戏，跑极占内存的应用</p>
-<p>一般网上的黑苹果教学是用VMare Fusion, 这里我用的是<strong>Parallels Desktop 11</strong>。两者相差不大，硬要比较的话，Parallels Desktop稍占优势。网上也有详细的对比贴，传送门：<em>Parallels Desktop 10 与 VMware Fusion 7 性能对比测试</em>   <a href="http://www.macx.cn/thread-2138678-1-1.html" target="_blank" rel="external">http://www.macx.cn/thread-2138678-1-1.html</a></p>
-<ul>
-<li><p>哪个发行版的Linux适合我？</p>
-<ul>
-<li><p>UBUNTU 适合新手，稳定的官方支持</p>
-</li>
-<li><p>Debian UBUNTU进阶发行版，包管理系统稳定，易上手</p>
-</li>
-<li><p>Arch 包更新相当快，滚动升级，系统一定最新</p>
-</li>
-<li><p>LFS 终极黑客显摆工具，从源代码安装，编译系统，照文档一步步去构建你的Linux。</p>
-</li>
-</ul>
-</li>
-</ul>
-<a id="more"></a>
-<p>我选择的是ubuntu 14.04的版本，现最新版本是15.10，但每年的04版本会相对较稳定，有固定维护</p>
-<ul>
-<li><p>在Mac上安装Parallels Desktop</p>
-<p>1.从Ubuntu官网 <a href="http://www.ubuntu.org/" target="_blank" rel="external">http://www.ubuntu.org/</a>下载镜像Ubuntu 14.04</p>
-<p>2.在Parallels Desktop 官网下载Parallels Desktop 11<br><a href="http://www.parallelsdesktop.cn/pd11-azjc.html" target="_blank" rel="external">http://www.parallelsdesktop.cn/pd11-azjc.html</a><br>  这里以PD10 为例<br>3.Mac虚拟机安装Linux Ubuntu，依旧是官网傻瓜式教程<br><a href="http://www.parallelsdesktop.cn/install_ubuntu.html" target="_blank" rel="external">http://www.parallelsdesktop.cn/install_ubuntu.html</a></p>
-</li>
-</ul>
-<p>注意：Parallels Desktop试用期是14天哦</p>
+        <p><strong>实验要求：</strong><br>1.加入系统调用，在终端输出信息<br>2.编写用户态程序，运行输出</p>
+<p><strong>实验步骤</strong><br>1.修改实验一的源码<br>终端进入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/src/linux-4.6.4/usr/include/asm/unistd_64.h</div></pre></td></tr></table></figure>
+<p>这里64是64位，32位应为32</p>
+<p>2.修改系统调用号<br><img src="http://img.blog.csdn.net/20160727120112763" alt="查询系统调用号，不同的系统号不同，应该为未使用过的"><br>define __NR_yssyscall 329</p>
+<p>查询系统调用号，不同的系统号不同，应该为未使用过的</p>
+<p>3.简单起见按照第一篇文章的函数修改sys.c文件<br><code>gedit /usr/src/linux-4.6.4/kernel/sys.c</code></p>
+<p>在文件最后添加函数（功能为输出姓名学号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">asmlinkage int sys_yssyscall(void)</div><div class="line">&#123;</div><div class="line">printk(&quot;qyisi 20142100”);</div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>4.加入 define __NR_yssyscall 329</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /usr/src/linux-4.6.4/arch/x86/entry/syscalls</div><div class="line"></div><div class="line">gedit syscall_64.tbl</div></pre></td></tr></table></figure>
+<p>我的电脑里syscall_64.tbl的位置很奇怪，若找不到搜索一下就好了<br>同理，若是32位即找对应的tbl文件</p>
+<p>5.make menuconfig<br>详细介绍</p>
+<p><a href="http://blog.csdn.net/xuyuefei1988/article/details/8635539" target="_blank" rel="external">http://blog.csdn.net/xuyuefei1988/article/details/8635539</a></p>
+<p>6.重新编译内核</p>
+<p><strong>清除上次痕迹 make mrproper</strong><br><img src="http://img.blog.csdn.net/20160727122656533" alt="这里写图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">make modules</div><div class="line">make modules_install</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>编译<br><img src="http://img.blog.csdn.net/20160727122801185" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20160727122818723" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20160727122828638" alt="这里写图片描述"></p>
+<p>7.reboot 重新启动 进入新内核<br><img src="http://img.blog.csdn.net/20160727122929358" alt="这里写图片描述"></p>
+<p>8.编写用户态文件</p>
+<p>在主文件目录（/home）下创建文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir test</div></pre></td></tr></table></figure>
+<p>进入/home/test/目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd test</div></pre></td></tr></table></figure>
+<p>(1)创建文件test.c</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gedit test.c</div></pre></td></tr></table></figure>
+<p>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">#define __NR_yssyscall 329</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">int rs;</div><div class="line">rs = syscall(__NR_yssyscall);</div><div class="line">if (!rs)</div><div class="line">printf(&quot;qyisi 20142100&quot;);</div><div class="line">return 0&#125;</div></pre></td></tr></table></figure></p>
+<p>(2)执行命令编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gcc –o test test.c</div></pre></td></tr></table></figure>
+<p>(3)编译成功后<br><code>./testHello</code></p>
+<p>(4)查看内核日志<br>查看系统调用在内核空间的运行情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dmesg</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20160727123415935" alt="这里写图片描述"></p>
+<p><strong>思考问题</strong></p>
 <blockquote>
-<p>一般来说，安装desktop时会自动安装Parallels Tools, 但是出现了可恶的三角形该咋办？</p>
+<p>“什么是操作系统的系统调用（system call）？系统调用过多会引起进程的性能开销么？为什么？”</p>
 </blockquote>
-<p><img src="http://img.blog.csdn.net/20160408222902434" alt="安装Parallels Tools"></p>
-<p>简单介绍一下，Parallels Tools还是很有用的。它能够鼠标自动切换两个系统，调整虚拟机的像素，不然Retina就太憋屈了</p>
-<p>这里提供解决无法安装Parallels Tools的几个方法</p>
-<ul>
-<li><p>点击小三角，<strong>安装Parallels Tools</strong>。可以看到cd/dvd1 显示连接了prl-tools-lin.iso镜像文件 (<strong>prl-tools-lin.iso </strong>表示用于 Linux 虚拟机的 Parallels tools 镜像**)</p>
-</li>
-<li><p>在ubuntu终端输入root指令－su。若需要密码时，显示密码错误<em>su:authentication failure</em>。可尝试以下方法：</p>
-<blockquote>
-<p>sudo passwd<br>Password：当前的密码<br>Enter new UNIX password：root的密码<br>Retype new UNIX password：重复root的密码</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li>更改目录为 CD/DVD 驱动目录(for 13.04 and above)：<blockquote>
-<p>cd /media/$user/Parallels\ Tools/</p>
-</blockquote>
-</li>
-<li><p>在 CD/DVD 驱动目录中，启动 Parallels Tools 安装：</p>
-<blockquote>
-<p>sudo ./install</p>
-</blockquote>
-</li>
-<li><p>另一种方法<br><img src="http://img.blog.csdn.net/20160409074103801" alt="linux安装"><br>直接打开cd/dvd1，双击install-gui</p>
-</li>
-</ul>
-<p>为了解决这个问题，我查阅了许多网站，找到了这个很棒的查错网站：<a href="http://kb.parallels.com/113394" target="_blank" rel="external">http://kb.parallels.com/113394</a><br>希望能对大家有所帮助</p>
-<ul>
-<li><p>附上Parallels Tools 需要内核资源的错误信息解决方案</p>
-</li>
-<li><p>需要以下程序包：linux-headers 和build-essential</p>
-</li>
-</ul>
-<p>安装 ‘linux-headers’ 和 ‘build-essential’ ：</p>
-<blockquote>
-<p>sudo apt-get install linux-headers-$(uname -r) build-essential</p>
-</blockquote>
-<ul>
-<li>检查镜像是否挂载 语法为<blockquote>
-<p>mount [-t vfstype] [-o options] device dir
-　　</p>
-</blockquote>
-</li>
-</ul>
-<p>   1.-t vfstype 指定文件系统的类型。mount 会自动选择正确的类型。这里用：<br>　　光盘或光盘镜像：<strong>iso9660</strong><br>　　<br>2.-o options 主要用来描述设备或档案的挂接方式。常用的参数有：</p>
-<pre><code>loop：用来把一个文件当成硬盘分区挂接上系统
-ro：采用只读方式挂接设备
-rw：采用读写方式挂接设备
-iocharset：指定访问文件系统所用字符集
-</code></pre><p>   3.device 要挂接(mount)的设备。</p>
-<p>   4.dir设备在系统上的挂接点(mount point)<br>   <img src="http://img.blog.csdn.net/20160409074921733" alt="iso9660"></p>
-<p>安装程序包后，尝试再次安装 Parallels Tools</p>
-<hr>
-<p>##在Linux上安装Swift<br>首先科普贴一篇：Linux平台Swift语言开发学习环境搭建<br><a href="http://my.oschina.net/kgdugyiy/blog/539998" target="_blank" rel="external">http://my.oschina.net/kgdugyiy/blog/539998</a></p>
-<p><strong>简单介绍几个命令</strong></p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sudo</td>
-<td>管理员操作</td>
-</tr>
-<tr>
-<td>su</td>
-<td>root权限</td>
-</tr>
-<tr>
-<td>wget</td>
-<td>下载文件</td>
-</tr>
-<tr>
-<td>rm</td>
-<td>删除文件 rm rf</td>
-</tr>
-<tr>
-<td>mount</td>
-<td>挂载</td>
-</tr>
-</tbody>
-</table>
-<p><strong>重点介绍wget</strong></p>
-<p>1.支持断点下传功能</p>
-<blockquote>
-<p>sudo wget -c <a href="http://www.abc.com" target="_blank" rel="external">http://www.abc.com</a></p>
-</blockquote>
-<p>2.同时支持FTP和HTTP下载方式。有些时候，仍然需要使用FTP方式下载软件</p>
-<blockquote>
-<p>wget <a href="http://url/zip" target="_blank" rel="external">http://url/zip</a></p>
-</blockquote>
-<p>等等</p>
-<p>基本的语法是：wget [参数列表] URL<br>使用wget下载单个文件</p>
-<p>以下的例子是从网络下载一个文件并保存在当前目录</p>
-<p>wget <a href="http://cn.wordpress.org/wordpress-3.1-zh_CN.zip" target="_blank" rel="external">http://cn.wordpress.org/wordpress-3.1-zh_CN.zip</a></p>
-<p>在下载的过程中会显示进度条，包含（下载完成百分比，已经下载的字节，当前下载速度，剩余下载时间）。</p>
-<p><strong>几个好玩的功能</strong></p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>功能</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>wget –limit -rate</td>
-<td>同时下载大文件及其他时限速</td>
-<td>wget–limit-rate=300k http://~</td>
-</tr>
-<tr>
-<td>wget -c</td>
-<td>断点续传（下载中断）</td>
-<td>wget -c http://~</td>
-</tr>
-<tr>
-<td>wget -b</td>
-<td>后台下载大文件</td>
-<td>wget -b http://~</td>
-</tr>
-<tr>
-<td>wget –user-agent</td>
-<td>根据判断代理名称不是浏览器而通过下载请求</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>补充</strong></p>
-<ul>
-<li>后台下载</li>
-</ul>
-<blockquote>
-<p>wget -b <a href="http://cn.wordpress.org/wordpress-3.1-zh_CN.zip" target="_blank" rel="external">http://cn.wordpress.org/wordpress-3.1-zh_CN.zip</a></p>
-<p>Continuing in background, pid 1840.<br>Output will be written to `wget-log’</p>
-</blockquote>
-<p>你可以使用以下命令来察看下载进度</p>
-<blockquote>
-<p>tail -f wget-log</p>
-</blockquote>
-<ul>
-<li>伪装代理名称下载</li>
-</ul>
-<blockquote>
-<p>wget –user-agent=”Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16″</p>
-</blockquote>
-<hr>
+<p>Linux内核中设置了一组用于实现各种系统功能的子程序，称为系统调用。<br>用户可以通过系统调用命令在自己的应用程序中调用它们。系统调用和普通的函数调用非常相似。</p>
+<p>区别仅仅在于，系统调用由操作系统核心提供，运行于核心态；而普通的函数调用由函数库或用户自己提供，运行于用户态。系统调用过多会引起进程的性能开销，因为系统调用需要从用户空间陷入内核空间，处理完后，又需要返回用户空间。其中除了系统调用服务例程的实际耗时外，陷入/返回过程和系统调用处理程序（查系统调用表、存储\恢复用户现场）也需要花销一些时间，这些时间加起来就是一个系统调用的响应速度。</p>
+<p>系统调用对性能要求很苛刻，因为它需要陷入内核执行，所以和其他内核程序一样要求代码简洁、执行迅速。</p>
 
       
     </div>
@@ -572,15 +431,11 @@ iocharset：指定访问文件系统所用字符集
           
             <a href="/tags/tech/" rel="tag"># tech</a>
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/vim/" rel="tag"># vim</a>
           
-            <a href="/tags/MacBook/" rel="tag"># MacBook</a>
+            <a href="/tags/OS/" rel="tag"># OS</a>
           
-            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
-          
-            <a href="/tags/Swift/" rel="tag"># Swift</a>
-          
-            <a href="/tags/Perfect/" rel="tag"># Perfect</a>
+            <a href="/tags/gcc/" rel="tag"># gcc</a>
           
         </div>
       
@@ -593,14 +448,18 @@ iocharset：指定访问文件系统所用字符集
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/18/CentOS-on-Mac-1-Linux环境配置/" rel="next" title="#CentOS on Mac#1.Linux环境配置">
+                <i class="fa fa-chevron-left"></i> #CentOS on Mac#1.Linux环境配置
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/18/CentOS-on-Mac-1-Linux环境配置/" rel="prev" title="#CentOS on Mac#1.Linux环境配置">
-                #CentOS on Mac#1.Linux环境配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/27/2016开发热点词儿/" rel="prev" title="2016开发热点词儿">
+                2016开发热点词儿 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
