@@ -181,7 +181,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">A girl with a laptop</p>
+        <p class="site-subtitle">Just girl with a laptop</p>
       
   </div>
 
@@ -217,6 +217,16 @@
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
           </a>
         </li>
       
@@ -314,6 +324,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -752,8 +784,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
                   </a>
                 </span>
 
@@ -904,8 +936,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
                   </a>
                 </span>
 
@@ -1053,8 +1085,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
                   </a>
                 </span>
 
@@ -1199,8 +1231,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
                   </a>
                 </span>
 
@@ -1364,8 +1396,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
                   </a>
                 </span>
 
@@ -1513,8 +1545,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
                   </a>
                 </span>
 
@@ -1556,35 +1588,6 @@
 <p>####2.CentOS<br>非常多的商业公司部署在生产环境上的服务器都是使用CentOS系统，CentOS是从RHEL源代码编译的社区重新发布版。CentOS简约，命令行下的人性化做得比较好，稳定，有着强大的英文文档与开发社区的支持。与Redhat有着相同的渊源。虽然不单独提供商业支持，但往往可以从Redhat中找到一丝线索。相对Debian来说，CentOS略显体积大一点。是一个非常成熟的Linux发行版。</p>
 <p>CentOS 7 <strong>配置设备</strong></p>
 <p>MacBook Pro (13’’)<br>处理器2.7 GHz Intel Core i5<br>内存8GB 1867 MHz DDr3<br>存储128G</p>
-<p>虚拟机Parallels Desktop 11 - CentOS 7</p>
-<ol>
-<li>获取CentOS -7.0-64位ISO镜像文件，压缩包2G，解压后5.7G 安装成功<img src="http://img.blog.csdn.net/20160718170129484" alt="这里写图片描述"></li>
-</ol>
-<p>uname 还可以用来查版本</p>
-<p>2.在www.kernel.org 获取 stable版本 4.6.4（release 20160711）</p>
-<p><img src="http://img.blog.csdn.net/20160718170044015" alt="这里写图片描述"></p>
-<p><strong>1.下载内核源码（用http协议下载）</strong><br>wget <a href="https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.6.4.tar.xz" target="_blank" rel="external">https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.6.4.tar.xz</a><br>输入wget后，404 Not Found 网址有错误，我将v4.x写成4.6<br>后来用浏览器获取地址后解决了问题</p>
-<p><img src="http://img.blog.csdn.net/20160718170157000" alt="这里写图片描述"></p>
-<p>加个小步骤 改正root权限 方便后面的操作<br>方法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">（1）sudo passwd root //修改root密码</div><div class="line">跟着步骤重设新的root密码</div><div class="line">（2）su root 切换到root密码 输入新密码</div><div class="line">（3）打开vim vi /etc/sudoers</div><div class="line">修改文件 找到## all members of group</div><div class="line">                     wheel ...这句</div><div class="line">将wheel前的#注释去掉</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20160718170322813" alt="这里写图片描述"><br>plus常用vim指令<br><strong>开始用i进行插入，x删除，：wq为保存退出若为只读文件，：wq!强制保存exit</strong></p>
-<p><strong>2.解压文件并移动到/usr/src/</strong><br>tar.xz 对应的解压指令为-jxvf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#tar -jxvf linux-4.6.4.tar.xz</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20160718170501189" alt="这里写图片描述"><br>&gt;<br>tar xvf将目标文件或目录解包<br>tar cvf 将目录下的文件或目录打成tar包<br>tar zxvf将目录或文件解压缩并解包<br>tar zcvf将目录或文件打成tar包并压缩]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cd /usr/src/linux-4.6.4</div></pre></td></tr></table></figure>
-<p>进入文件夹内</p>
-<p> !<strong>!清理以前的编译痕迹</strong><br>如果内核源码是刚解压缩出来的，可以跳过这一步，否则执行以下两条命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make mrproper</div><div class="line">make clean</div></pre></td></tr></table></figure>
-<p><strong>3.设置内核编译选项</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make menuconfig</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20160718170226623" alt="这里写图片描述"><br>执行该命令需要ncurses库，如果执行出错则执行如下命令安装ncurses：（Ncurses 提供字符终端处理库，包括面板和菜单</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install ncurses-devel</div><div class="line">yum -y install gcc</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20160718170412704" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20160718170704064" alt="这里写图片描述"><br>错误：一开始提示找不到openssl 用了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install openssl-devel</div></pre></td></tr></table></figure>
-<p>//编译内核压缩镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make bzImage</div></pre></td></tr></table></figure>
-<p>编译会生成bzImage文件，对应于/boot目录下的vmlinuz文件，是压缩过的内核文件。启动加载时将该文件解压缩到内存中之后才能执行操作系统。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/07/18/CentOS-on-Mac-1-Linux环境配置/#more" rel="contents">
@@ -1735,27 +1738,7 @@
 <li><strong>在MacBook Pro Retina上装Linux</strong><br>Parallels + Ubuntu 14.04</li>
 <li><strong>在Linux上安装Swift</strong></li>
 </ul>
-<hr>
-<p>##Parallels + Ubuntu 14.04</p>
-<ul>
-<li>虚拟机 or Bootcamp?</li>
-</ul>
-<p>－虚拟机<strong>优点</strong>：不需要重启切换系统；可以安装多个系统；不需要分区等等。最酷炫的就是两个系统同时出现在桌面<br> －虚拟机<strong>缺点</strong>：不适合大型游戏，跑极占内存的应用</p>
-<p>一般网上的黑苹果教学是用VMare Fusion, 这里我用的是<strong>Parallels Desktop 11</strong>。两者相差不大，硬要比较的话，Parallels Desktop稍占优势。网上也有详细的对比贴，传送门：<em>Parallels Desktop 10 与 VMware Fusion 7 性能对比测试</em>   <a href="http://www.macx.cn/thread-2138678-1-1.html" target="_blank" rel="external">http://www.macx.cn/thread-2138678-1-1.html</a></p>
-<ul>
-<li><p>哪个发行版的Linux适合我？</p>
-<ul>
-<li><p>UBUNTU 适合新手，稳定的官方支持</p>
-</li>
-<li><p>Debian UBUNTU进阶发行版，包管理系统稳定，易上手</p>
-</li>
-<li><p>Arch 包更新相当快，滚动升级，系统一定最新</p>
-</li>
-<li><p>LFS 终极黑客显摆工具，从源代码安装，编译系统，照文档一步步去构建你的Linux。</p>
-</li>
-</ul>
-</li>
-</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/04/08/Swift-Ubuntu-on-Mac/#more" rel="contents">
