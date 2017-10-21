@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tech,OS,openswitch,mininet,opensource,openflow," />
+  <meta name="keywords" content="openswitch,mininet,opensource,switch,database,application," />
 
 
 
@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="#OpenVSwitch  任务：1.源码安装ovs2.写基本的openflow条目控制网络包转发方向3.minine环境下设计应用ovs  ##OpenVSwitch安装 Linux内核支持到4.1.25。之前安装的是4.6.4所以用系统原本的3.10.0 天才第一步：先好好看源码包里的README">
-<meta name="keywords" content="tech,OS,openswitch,mininet,opensource,openflow">
+<meta name="description" content="OpenVSwitch 任务：1.源码安装ovs2.写基本的openflow条目控制网络包转发方向3.minine环境下设计应用ovs  OpenVSwitch安装Linux内核支持到4.1.25。之前安装的是4.6.4所以用系统原本的3.10.0 天才第一步：先好好看源码包里的README">
+<meta name="keywords" content="openswitch,mininet,opensource,switch,database,application">
 <meta property="og:type" content="article">
-<meta property="og:title" content="#CentOS on Mac#5.OpenVSwitch＋mininet ">
+<meta property="og:title" content="CentOS on Mac#5.OpenVSwitch＋mininet ">
 <meta property="og:url" content="http://www.yisiqiu.com/2016/08/01/CentOS-on-Mac-5-OpenVSwitch＋mininet/index.html">
 <meta property="og:site_name" content="Izzy Notes">
-<meta property="og:description" content="#OpenVSwitch  任务：1.源码安装ovs2.写基本的openflow条目控制网络包转发方向3.minine环境下设计应用ovs  ##OpenVSwitch安装 Linux内核支持到4.1.25。之前安装的是4.6.4所以用系统原本的3.10.0 天才第一步：先好好看源码包里的README">
+<meta property="og:description" content="OpenVSwitch 任务：1.源码安装ovs2.写基本的openflow条目控制网络包转发方向3.minine环境下设计应用ovs  OpenVSwitch安装Linux内核支持到4.1.25。之前安装的是4.6.4所以用系统原本的3.10.0 天才第一步：先好好看源码包里的README">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.blog.csdn.net/20160731121156096">
 <meta property="og:image" content="http://img.blog.csdn.net/20160731121212951">
@@ -137,10 +137,10 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20160801103626439">
 <meta property="og:image" content="http://img.blog.csdn.net/20160801104106822">
 <meta property="og:image" content="http://img.blog.csdn.net/20160801105238979">
-<meta property="og:updated_time" content="2017-10-20T16:00:36.000Z">
+<meta property="og:updated_time" content="2017-10-21T04:56:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="#CentOS on Mac#5.OpenVSwitch＋mininet ">
-<meta name="twitter:description" content="#OpenVSwitch  任务：1.源码安装ovs2.写基本的openflow条目控制网络包转发方向3.minine环境下设计应用ovs  ##OpenVSwitch安装 Linux内核支持到4.1.25。之前安装的是4.6.4所以用系统原本的3.10.0 天才第一步：先好好看源码包里的README">
+<meta name="twitter:title" content="CentOS on Mac#5.OpenVSwitch＋mininet ">
+<meta name="twitter:description" content="OpenVSwitch 任务：1.源码安装ovs2.写基本的openflow条目控制网络包转发方向3.minine环境下设计应用ovs  OpenVSwitch安装Linux内核支持到4.1.25。之前安装的是4.6.4所以用系统原本的3.10.0 天才第一步：先好好看源码包里的README">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20160731121156096">
 
 
@@ -176,7 +176,7 @@
 
 
 
-  <title>#CentOS on Mac#5.OpenVSwitch＋mininet  | Izzy Notes</title>
+  <title>CentOS on Mac#5.OpenVSwitch＋mininet  | Izzy Notes</title>
   
 
 
@@ -336,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">#CentOS on Mac#5.OpenVSwitch＋mininet </h1>
+          <h1 class="post-title" itemprop="name headline">CentOS on Mac#5.OpenVSwitch＋mininet </h1>
         
 
         <div class="post-meta">
@@ -408,12 +408,10 @@
       
 
       
-        <p>#OpenVSwitch</p>
-<blockquote>
+        <h1 id="OpenVSwitch"><a href="#OpenVSwitch" class="headerlink" title="OpenVSwitch"></a>OpenVSwitch</h1><blockquote>
 <p>任务：<br>1.源码安装ovs<br>2.写基本的openflow条目控制网络包转发方向<br>3.minine环境下设计应用ovs</p>
 </blockquote>
-<p>##OpenVSwitch安装</p>
-<p>Linux内核支持到4.1.25。<br>之前安装的是4.6.4<br>所以用系统原本的3.10.0</p>
+<h2 id="OpenVSwitch安装"><a href="#OpenVSwitch安装" class="headerlink" title="OpenVSwitch安装"></a>OpenVSwitch安装</h2><p>Linux内核支持到4.1.25。<br>之前安装的是4.6.4<br>所以用系统原本的3.10.0</p>
 <p>天才第一步：先好好看源码包里的README</p>
 <a id="more"></a>
 <p><strong>下载源码</strong></p>
@@ -466,8 +464,7 @@
 <p><strong>查看OVS进程是否启动</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux|grep ovs</div></pre></td></tr></table></figure>
 <p><img src="http://img.blog.csdn.net/20160731125909124" alt="这里写图片描述"></p>
-<p>##<strong>ovs应用</strong></p>
-<p>例子：新建网桥br0并加入端口</p>
+<h2 id="ovs应用"><a href="#ovs应用" class="headerlink" title="ovs应用"></a><strong>ovs应用</strong></h2><p>例子：新建网桥br0并加入端口</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ovs-vsctl add-br br0</div><div class="line">ovs-vsctl add-port br0 eth0</div><div class="line">ovs-vsctl add-port br0 vif1.0</div></pre></td></tr></table></figure>
 <p><img src="http://img.blog.csdn.net/20160731130050111" alt="这里写图片描述"></p>
 <p>应用场景：<br>1.常用：如删除网桥br0上挂接的eth0网络接口</p>
@@ -520,8 +517,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/mininet/mininet</div><div class="line">cd mininet/util/</div><div class="line">./install.sh -a</div><div class="line">ls</div></pre></td></tr></table></figure>
 <p><img src="http://img.blog.csdn.net/20160801102049372" alt="这里写图片描述"></p>
 <p><img src="http://img.blog.csdn.net/20160801102104841" alt="这里写图片描述"></p>
-<p>###应用场景设置</p>
-<p>Stochastic Switching using Open vSwitch in Mininet<br>随机交换模型（参考github）</p>
+<h3 id="应用场景设置"><a href="#应用场景设置" class="headerlink" title="应用场景设置"></a>应用场景设置</h3><p>Stochastic Switching using Open vSwitch in Mininet<br>随机交换模型（参考github）</p>
 <p>1.修改select group type，修改程序<br>/home/parallels/openvswitch-2.0.1/ofproto／ofproto-dpif-xlate.c中<br>加入头文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;time.h&gt;</div></pre></td></tr></table></figure>
 <p>添加全局变量</p>
@@ -563,17 +559,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/tech/" rel="tag"># tech</a>
-          
-            <a href="/tags/OS/" rel="tag"># OS</a>
-          
             <a href="/tags/openswitch/" rel="tag"># openswitch</a>
           
             <a href="/tags/mininet/" rel="tag"># mininet</a>
           
             <a href="/tags/opensource/" rel="tag"># opensource</a>
           
-            <a href="/tags/openflow/" rel="tag"># openflow</a>
+            <a href="/tags/switch/" rel="tag"># switch</a>
+          
+            <a href="/tags/database/" rel="tag"># database</a>
+          
+            <a href="/tags/application/" rel="tag"># application</a>
           
         </div>
       
@@ -586,8 +582,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/27/CentOS-on-Mac-4-WebBench测试TinyHttpd/" rel="next" title="#CentOS on Mac#4.WebBench测试TinyHttpd ">
-                <i class="fa fa-chevron-left"></i> #CentOS on Mac#4.WebBench测试TinyHttpd 
+              <a href="/2016/07/27/CentOS-on-Mac-4-WebBench测试TinyHttpd/" rel="next" title="CentOS on Mac#4.WebBench测试TinyHttpd ">
+                <i class="fa fa-chevron-left"></i> CentOS on Mac#4.WebBench测试TinyHttpd 
               </a>
             
           </div>
@@ -596,8 +592,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/22/芝加哥感恩节游记2-0/" rel="prev" title="芝加哥感恩节游记2.0">
-                芝加哥感恩节游记2.0 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/27/生活不只有诗和远方，还有深盘和爆米花1-0/" rel="prev" title="生活不只有诗和远方，还有深盘和爆米花1.0">
+                生活不只有诗和远方，还有深盘和爆米花1.0 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -650,8 +646,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/and.jpg"
@@ -666,7 +671,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -688,7 +693,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -737,6 +742,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenVSwitch"><span class="nav-number">1.</span> <span class="nav-text">OpenVSwitch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenVSwitch安装"><span class="nav-number">1.1.</span> <span class="nav-text">OpenVSwitch安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ovs应用"><span class="nav-number">1.2.</span> <span class="nav-text">ovs应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景设置"><span class="nav-number">1.2.1.</span> <span class="nav-text">应用场景设置</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
