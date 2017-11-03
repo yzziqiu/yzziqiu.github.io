@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SA,Data Analysis,CNN," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="领域来源：微博（twitter）淘宝，youtube 短评 格式音频视频音乐图片 用途货物评价 事件评价 预测（股票，广告prefer products; reviews hotel airports） 推荐系统 挑战语言翻译 错误拼写 Sarcasm偏旁 Steps Web crawling: Text cleaning: Topic extraction: Semantic analysis:">
+<meta name="keywords" content="SA,Data Analysis,CNN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reference of Sentiment Analysis">
+<meta property="og:url" content="http://www.yisiqiu.com/2017/10/21/Reference-of-Sentiment-Analysis/index.html">
+<meta property="og:site_name" content="Izzy Notes">
+<meta property="og:description" content="领域来源：微博（twitter）淘宝，youtube 短评 格式音频视频音乐图片 用途货物评价 事件评价 预测（股票，广告prefer products; reviews hotel airports） 推荐系统 挑战语言翻译 错误拼写 Sarcasm偏旁 Steps Web crawling: Text cleaning: Topic extraction: Semantic analysis:">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-10-21T05:56:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reference of Sentiment Analysis">
+<meta name="twitter:description" content="领域来源：微博（twitter）淘宝，youtube 短评 格式音频视频音乐图片 用途货物评价 事件评价 预测（股票，广告prefer products; reviews hotel airports） 推荐系统 挑战语言翻译 错误拼写 Sarcasm偏旁 Steps Web crawling: Text cleaning: Topic extraction: Semantic analysis:">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yisiqiu.com/2017/10/21/Reference-of-Sentiment-Analysis/"/>
+
+
+
+
+
+  <title>Reference of Sentiment Analysis | Izzy Notes</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Izzy Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Just a girl with a laptop</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yisiqiu.com/2017/10/21/Reference-of-Sentiment-Analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Izzy Qiu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/and.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Izzy Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Reference of Sentiment Analysis</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-21T12:41:16+08:00">
+                2017-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/21/Reference-of-Sentiment-Analysis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/21/Reference-of-Sentiment-Analysis/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="领域"><a href="#领域" class="headerlink" title="领域"></a>领域</h3><p>来源：微博（twitter）淘宝，youtube 短评 格式音频视频音乐图片</p>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p>货物评价 事件评价 预测（股票，广告prefer products; reviews hotel airports） 推荐系统</p>
+<h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><p>语言翻译 错误拼写 Sarcasm<br>偏旁</p>
+<h3 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h3><ol>
+<li>Web crawling:</li>
+<li>Text cleaning:</li>
+<li>Topic extraction:</li>
+<li>Semantic analysis: Semantic analysis is the most important step to obtain investor sentiment data. </li>
+</ol>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li><p>词典</p>
+<p>NTU 知网DataTang SnowNLP</p>
+</li>
+<li><p>语料 </p>
+<p>电影Amazon微博 酒店<br>NTLK语料库 (特征提取-模型训练）词汇量——DL深度学习（lstm Long Short Term Memory长短时记忆）</p>
+</li>
+<li><p>word2vec（bow+skip-gram）</p>
+<p>语境x词序 CBOW的目标是根据上下文来预测当前词语的概率。Skip-gram刚好相反：根据当前词语来预测上下文的概率</p>
+</li>
+<li><p>doc2vec （dm+dbow）</p>
+<p>Distributed Memory(DM) 和 Distributed Bag of Words(DBOW)。DM 试图在给定上下文和段落向量的情况下预测单词的概率<br>scikit-learn “t-sne”降维</p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>文本预处理技术包括分词、词性标注、句法分析等<br>如中国科学院计算技术研究所研制的基于多层隐马模型的汉语词法分析系统 ICTCLAS( Institute of Computing Technology，ChineseLexical Analysis System) ，系统的功 能有: 中文分词、词性标注、命名实体识别和未登录词识别，分词 正确率高达 97. 58% ; 哈尔滨工业大学社会计算与信息检索研 究中心研制的 LTP( Language Technology Platform) 开源语言技术平台具有分词、词性标注、命名实体识别、依存句法分析在内 的一整套基于 XML 的中文语言处理模块 </p>
+<p>基于 PMI_IR 和 HowNet 词汇提出了 Ontology 模型，将极性词图像化为“地球仪”，越近两极倾向性越明显，通过计算词汇相似度和相似度最 大词汇在 Ontology 模型中的映射确定情感词的极性。 </p>
+<h4 id="主题抽取"><a href="#主题抽取" class="headerlink" title="主题抽取"></a>主题抽取</h4><p>为了实现自动构建层次化结构，可以利用领域特征,从而免去人工构建本体库的困难。文献提出了利用句法结构相似度以及启发式的方法来查找可能的评价对象的方法。文献通过结合《知网》本体库，提出基于语义的微博短信息主题分类方法。 </p>
+<h3 id="关系抽取"><a href="#关系抽取" class="headerlink" title="关系抽取"></a>关系抽取</h3><p>常用的方法有根据词性建立语言模版。如文献先寻找语句中的目标词，通过对文本句法进行分析，得出与目标词有修饰关系的词，根据条规则模版对关系进行分类。 </p>
+<p>互联网中的博客、论坛、讨论组出现了大量的由用户发布的主观性文本。这些主观性文本可以是用户对某个产 品或服务的评论，或者是公众对某个新闻事件或国家政策的 观点等。潜在的消费者在购买某个产品或服务时获取相关的 评论可以提供决策参考，政府部门也可以浏览公众对新闻事 件或国家政策的看法来了解舆情。这些主观性文本每天以指 数级的速度增长，仅靠人工进行分析需要消耗大量的人力和 时间。因此采用计算机来自动地分析这些主观性文本表达的 情感，成为目前学术界研究的一个热点，这个热点的研究方向 就是文本情感分析或称为意见挖掘。 </p>
+<p>通过对两种方法的最优特征组合进行对比发现，情感词和否定词特征对两种 模型均有用; 词性特征对SVM模型有用，对 CRF 模型有干扰作用，程度副词和特殊符号特征对CRF 模型有用，对 SVM模型有干扰作用 </p>
+<p>弹幕（词云可视化）<br>网络评论情感分析的目的在于按照评论文本所表达的情感倾向对评论进行分类。目前针对网络评论的 情感分析应用研究多集中在微博舆论和商品评论两个领域: 利用情感分析技术对微博舆论中的热点话题、 公众观点等进行提取, 或对面向商品的用户在线评论<br>根据情感分类的方法, 情感分析在微博、网络商品评论领域的应用研究可分为两大类。机器学习方法主要是应用机器学习模型, 对训练集的情感特征进行学习, 估计系统输入输出之间依赖关系, 从而应用于对测试集的分类判断。Pang 等利用支持向量机、朴素贝叶斯、最大熵三种方法对电影评论进行分类, 发现支持向量机的分类效果最好, 而最大熵和朴素贝叶 斯的分类效果相当。刘志明等研究发现, 采用支持向 量机的机器学习算法、信息增益的特征选取算法和 TF-IDF 的特征项权重计算方法, 三者的结合对微博短 文本的情感分类效果最好。 </p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li><p>w2v</p>
+<p>twitter分析 逻辑分类 ROC曲线 ANN人工神经</p>
+</li>
+<li><p>D2v </p>
+<p>电影评论 sgdclassifer（训练）<br>股市分析 线段-移动平均值</p>
+</li>
+</ul>
+<h3 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h3><p>tensorflow（卷积）</p>
+<h3 id="data-science-in-python"><a href="#data-science-in-python" class="headerlink" title="data science in python"></a>data science in python</h3><table>
+<thead>
+<tr>
+<th>抓取数据</th>
+<th>分析 kaggle</th>
+<th>可视化</th>
+<th>大数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requests静态</td>
+<td>pandas预处理（大选，共享单车）</td>
+<td>matplotlib-seaborn</td>
+<td>dl（sklearn，spark处理 selenium动态 </td>
+</tr>
+</tbody>
+</table>
+<h4 id="词云"><a href="#词云" class="headerlink" title="词云"></a>词云</h4><p>Map-reduce（hadoop）</p>
+<h4 id="其他资源"><a href="#其他资源" class="headerlink" title="其他资源"></a>其他资源</h4><p>o    斯坦福公开课</p>
+<p>•    WIKI Sentiment analysis （<a href="https://en.wikipedia.org/wiki/Sentiment_analysis）" target="_blank" rel="external">https://en.wikipedia.org/wiki/Sentiment_analysis）</a><br>•    INFO Awesome Sentiment Analysis （<a href="https://github.com/xiamx/awesome-sentiment-analysis）" target="_blank" rel="external">https://github.com/xiamx/awesome-sentiment-analysis）</a></p>
+<ul>
+<li>竞赛：Kaggle: UMICH SI650 - Sentiment Classification （<a href="https://www.kaggle.com/c/si650winter11#description）" target="_blank" rel="external">https://www.kaggle.com/c/si650winter11#description）</a></li>
+<li>竞赛：SemEval-2017 Task 4: Sentiment Analysis in Twitter （<a href="http://alt.qcri.org/semeval2017/task4/）" target="_blank" rel="external">http://alt.qcri.org/semeval2017/task4/）</a></li>
+<li>竞赛：SemEval-2017 Task 5: Fine-Grained Sentiment Analysis on Financial Microblogsand News （<a href="http://alt.qcri.org/semeval2017/task5/）" target="_blank" rel="external">http://alt.qcri.org/semeval2017/task5/）</a></li>
+<li>项目：SenticNet （<a href="http://sentic.net/about/）" target="_blank" rel="external">http://sentic.net/about/）</a></li>
+<li>资源：Multi-Domain Sentiment Dataset （version2.0）（<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/）" target="_blank" rel="external">http://www.cs.jhu.edu/~mdredze/datasets/sentiment/）</a></li>
+<li>资源：Stanford Sentiment Treebank （<a href="https://nlp.stanford.edu/sentiment/code.html）" target="_blank" rel="external">https://nlp.stanford.edu/sentiment/code.html）</a></li>
+<li>资源：Twitter Sentiment Corpus （<a href="http://www.sananalytics.com/lab/twitter-sentiment/）" target="_blank" rel="external">http://www.sananalytics.com/lab/twitter-sentiment/）</a></li>
+<li>资源：Twitter Sentiment Analysis Training Corpus （<a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/）" target="_blank" rel="external">http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/）</a></li>
+<li>资源： AFINN:List of English words rated for valence （<a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010）" target="_blank" rel="external">http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010）</a></li>
+</ul>
+<h2 id="Methods-Fields"><a href="#Methods-Fields" class="headerlink" title="Methods + Fields"></a>Methods + Fields</h2><ul>
+<li><p>Absa</p>
+<p>(Multilingual) Aspect Based Sentiment Analysis (ABSA) refers to the systems that determine the opinions or sentiments expressed on different features or aspects of the products and services under evaluation (e.g., battery or performance for a laptop).</p>
+<p>An ABSA system should be capable of classifying each opinion according to the aspect categories relevant for each domain in addition to classifying its sentiment polarity</p>
+<p>多语言，通过方面的特征（电池和性能）决定意见和情感</p>
+</li>
+<li><p>Anew </p>
+<p>Affective Norms for English Words</p>
+<p>The list is further propagated using WordNet ( Miller, 1995 ) by identifying their synonyms and antonyms.</p>
+<p>由Wordnet转化辨认同义词和反义词</p>
+</li>
+<li><p>Ann<br>Artificial Neural Network</p>
+</li>
+<li><p>Anp</p>
+<p>SVMs were trained using a taxonomy of a semantic construct called adjective–noun pairs</p>
+<p>The proposed ANPs combined a “noun” for visual detectability and an “adjective” for sentiment modulation of the object described by noun semantics, resulting in pairs like cute dog, beautiful sunset, disgusting food and terrible accident.</p>
+<p>训练SVM以形容词+名词，如可爱的狗</p>
+</li>
+<li><p>antusd</p>
+<p>Chinese WordNet and e-HowNet do provide more ontology semantics, and the augmented version of the NTUSD called ANTUSD was integrated into E-HowNet</p>
+<p>NTUSD升级版与E-HowNet结合</p>
+</li>
+<li><p>apt(model for business study) 金融</p>
+<p>this study extends the arbitrage pricing theory (APT) risk versus behavior factor debate in asset pricing by testing APT using a multivariate framework.</p>
+</li>
+<li><p>asean (intraday)</p>
+<p>find factors to explain market returns in ASEAN have tested: Nasdaq; Dow Jones; S&amp;P 500; Nikkei; Hang Seng; Straits Times; Industrial Index; gold prices; oil</p>
+<p>交易市场</p>
+</li>
+<li><p>asum(短评）</p>
+<p>aspect and sentiment unification model</p>
+<p>The experimental results indicate that the proposed technique performs well on short texts where ASUM performs poorly on short texts.</p>
+<p>ASUM短评中效果不好</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>beautifulsoup<br>crawl data in python</p>
+</li>
+<li><p>bns</p>
+<p>Bi-Normal Separation (BNS). They showed that a robust feature selection allows lifting classification accuracies significantly when combined with complex feature types.</p>
+<p>结合复杂的特征种类，提高分类准确度</p>
+</li>
+<li><p>bow (Bag Of Words</p>
+<p>While CBOW aims to predict a word given its context, Skip-gram predicts the context given a word.</p>
+<p>Word2vec computes continuous vector representations of words form very large datasets.</p>
+<p>Continuous Bag-of-Words algorithm (CBOW) –whose goal is to predict a word when the surrounding words are given, and (ii) the Continuous Skip-Gram algorithm (Skip-gram) – which predicts a set of<br>words when a single word is known.</p>
+<p>CBOW: 给语境猜词<br>Skip-gram：给词猜语境</p>
+<p>a document is regarded as a bag of words (BOW), mapped into a feature vector, and then classified by machine learning techniques such as naive Bayes (NB), maximum entropy (ME), or support vector machines (SVM)</p>
+</li>
+<li><p>btm(短评</p>
+<p>The sentiment classifier is built using a three-level classification approach, while the aspect extractor is built using extended biterm topic model (eBTM), an extension of LDA topic model for short texts.</p>
+<p>三层分类</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>chatter-grabber</p>
+<p>We used ChatterGrabber, a web-scraping tool that randomly samples public tweets of Twitter users in the United States.</p>
+<p>Parameter include tweet data/ user data/ media data</p>
+<p>随机抓取twitter公共样本</p>
+</li>
+<li><p>chi(CHI statistics</p>
+<p>feature selection algorithms<br>特征选取</p>
+<p>GR &gt;IG &gt;CHI &gt;DF,</p>
+</li>
+<li><p>clm-z</p>
+<p>based method was used for feature extraction from visual modality;</p>
+<p>适用于图像处理</p>
+</li>
+<li><p>cloud</p>
+<p>hybrid cloud intelligence infrastructure is used to conduct large-scale experiments to analyze user sentiments and associated emotions, using data from a million Facebook users.</p>
+<p>混合云处理大量实验来分析用户情感</p>
+</li>
+<li><p>cnn</p>
+<p>a deep convolutional neural network (CNN) based architecture has been proposed for aspect term extraction task.</p>
+<p>The trained CNN features were then fed into a SVM for classification. So, in particular we used CNN as trainable feature extractor and SVM as a classifier.</p>
+<p>The deep CNN-SVM -based textual sentiment analysis component is found to be the key element for out-performing the state-of-the-art model’s accuracy.</p>
+<p>CNN用于训练特征提取-SVM分类</p>
+</li>
+<li><p>code-switching (multi-lingual)</p>
+<p>There are even more difficult and unexplored multilingual variants, such as code-switching texts (i.e. texts that contain terms in two or more different languages).翻译</p>
+</li>
+<li><p>crf</p>
+<p>hierarchical sequence learning algorithm similar to conditional random fields (CRF) to learn sentiment</p>
+<p>学习情感</p>
+</li>
+<li><p>customer-preference</p>
+<p>Mapping from customer preference to product features<br>Results showed that tourism product reviews available on web sites contain valuable information about customer preferences that can be extracted using an aspect-based opinion mining approach.</p>
+<p>旅游产品网站提取重要信息推测游客喜好</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>deep-learning</li>
+</ul>
+<p>The main idea of deep learning techniques is to learn complex features extracted from data with minimum external contribution using deep neural networks<br>deep learning architectures such as convolutional neural networks on code-switching texts,</p>
+<p>神经网络学习复杂特征通过最小的附加数据<br>o    df (document frequency</p>
+<p>DF denotes the frequency that each term occurs in all texts (document) If the frequency of a term is too low, then it is regarded that the term is not typical enough to represent the texts;</p>
+<p>一个词在文本中的频率太低，这个词非典型性</p>
+<ul>
+<li>dsl</li>
+</ul>
+<p>Domain-Specific Languages</p>
+<p>a small, usually declarative, language expressive over the distinguishing characteristics of a set of programs in a particular problem<br>代表性分辨特别问题</p>
+<ul>
+<li>dt</li>
+</ul>
+<p>graphical representation of training samples, where leaves represent class labels of training samples and branches represent con-junctions of features that lead to the class labels.</p>
+<p>DT is an algorithm commonly used in data mining The goal of DT is to construct a tree structure that predicts the values of<br>test samples based on the training samples. </p>
+<p>训练样本，叶子代表类标签。DT目标是树结构预测根据训练样本得到的测试样本</p>
+<hr>
+<ul>
+<li>eeg</li>
+</ul>
+<p>Electroencephalogram (EEG) is considered as a promising tool for measuring cognitive workload at lower cost with easy handling, wireless connectivity and lower maintenance cost</p>
+<p>EEG信号用来测试可认知workload在最小成本</p>
+<ul>
+<li>em</li>
+</ul>
+<p>exploited a semi-supervised learning algorithm which is based on Expectation Maximization (EM) using naive Bayes as a classifier to learn from a small set of labeled sentences and a large<br>set of unlabeled sentences</p>
+<p>运用Bayes分类器学习小部分已标记的句子，和大部分未标记的句子</p>
+<ul>
+<li>emotions (cloud based, embedding, cnn</li>
+</ul>
+<p>There are a number of theories on emotion taxonomy which spans from Ekman’s emotion categorization model to the Hourglass of Emotion.</p>
+<p>So far, approaches to text-based emotion and sentiment detection rely mainly on rule-based techniques, bag of words modeling using a large sentiment or emotion lexicon , or statistical approaches that assume the availability of a large dataset annotated with polarity or emotion labels</p>
+<p>Emotion analysis , or affective analysis can be considered as a refined version of sentiment analysis, since it aims at a more detailed categorization of documents based on the emotions they express</p>
+<ul>
+<li><p>environment (great reef)</p>
+</li>
+<li><p>event( company event, hurricane)</p>
+</li>
+<li>f-measure</li>
+</ul>
+<p>The proposed method uses the created lexicon features alongside another lexicon and n-gram features to improve accuracy and F-measure.</p>
+<p>In ALGA, it is shown that even using a small dataset (STS-Test) is enough for achieving high accuracy and F-measure values and the number of tweets for training phase does not need to be high.</p>
+<p>在ALGA中，分词用另一种分词和n-gram提高准确度和f-measure</p>
+<ul>
+<li>fcm (fuzzy)</li>
+</ul>
+<p>The fuzzy C-means (FCM) clustering algorithm was used in order to define five original fuzzy sets. These fuzzy sets have triangular membership functions.</p>
+<p>Every membership function has a degree of membership equal to 1 at the center previously calculated by the FCM, and a support that is defined as the space between the projections of the previous center and the next center on the horizontal axis.</p>
+<p>定义5个模糊集合，</p>
+<ul>
+<li>fr-rank</li>
+</ul>
+<p>rank existing nodes according to frequency of occurrence and richness (higher co-occurring PMI value), called FR-Rank, FR-Rank approach to extract frequently used nodes as keywords,<br>提取常用词作为关键词</p>
+<ul>
+<li>fuzzy</li>
+</ul>
+<p>The fuzzy computational mechanism, along with the AV-AT model of emotion form the core components of the proposed emotion modeling methodology.</p>
+<p>模糊计算，结合AV-AT表情模型-&gt;表情建模方法</p>
+<hr>
+<ul>
+<li>gavam</li>
+</ul>
+<p>GAVAM was also used to extract facial expression features from the face. shows the extracted features from facial images. In our experiment we used the features extracted by CLM-Z along with the features extracted using GAVAM.</p>
+<p>结合CLM-Z和GAVAM提取图片</p>
+<p>•    gc(Gauss based cuckoo search algorithm</p>
+<ul>
+<li>generic</li>
+</ul>
+<p>Those features can be either surface features (which stands for S ), generic automatic word vectors<br>( G ), or affect word vectors specifically trained for the sentiment analysis task ( A ).<br>S：表面特征， G自动词向量 A:SA</p>
+<p>Generic word vectors, also denoted as pre-trained word vectors, can be captured by word embeddings techniques such as word2vec ( Mikolov, Chen et al., 2013 ) and GloVe ( Pennington, Socher, &amp; Man-ning, 2014 ). Generic vectors are extracted in an unsupervised manner i.e., they are not trained for a specific task. These word vectors contain semantic and syntactic information, but do not enclose<br>any specific sentiment information.</p>
+<p>Generic framework for stock<br>捕捉 词嵌套word2vec（包含语义，不包含任何特殊情感信息）</p>
+<ul>
+<li>genetic-pro</li>
+</ul>
+<p>we find that the sentiment indicator based genetic programming optimization approach yields a superior trading performance.</p>
+<p>Algorithm :</p>
+<ol>
+<li>Randomly create an initial population of individuals from the available function and terminal set;<br>repeat</li>
+<li>Execute each individual and compute its fitness;</li>
+<li>Select one or two individual(s) from the population with a fitness-based probability to participate in genetic operations (i.e. crossover and mutation);</li>
+<li>Create new individual(s) by applying genetic operations with specified probabilities of crossover or<br>mutation; until Stopping condition is met;</li>
+</ol>
+<p>从可用功能和终端集合中随机建立初始样本<br>执行单个个体，重复<br>从样本中选择1-2个个体<br>从样本中选择1-2个fitness-based个体<br>建立个体适用于genetic操作</p>
+<ul>
+<li>ghlz (trade stock</li>
+</ul>
+<p>Extending GHLZ model by exploring the relationship between intraday stock market returns and intraday sentiment, Sun et al. (2016) (SNS hereafter) find that the change in investor sentiment has predictive value for the intraday market returns.</p>
+<p>GHLZ模型 通过股市和情感的关系，找到投资者情感变化</p>
+<ul>
+<li>gmm<br>probabilistic neural network (PNN), Gaussian mixture model (GMM)</li>
+</ul>
+<p>The use of Gaussian mixture models as a classification tool is motivated by the interpretation that the Gaussian components represent some general output dependent features and the capability of Gaussian mixtures to model arbitrary densities<br>分类工具，取决于一般输出和随机密度</p>
+<ul>
+<li>gr</li>
+</ul>
+<p>Gain ratio (GR)<br>GR is introduced in decision tree (C4.5) algorithms and is a type of feature selection algorithm based on the principle of IG ( Quinlan, 1993; Sharma &amp; Dey, 2012b ).</p>
+<p>The GR value of a text feature is calculated by normalizing the IG value of the text feature. The high GR value indicates that the text feature will be useful for classification.<br>GR值 规范化文本特征IG值，GR值越高-&gt;文本特征分类越有用</p>
+<hr>
+<ul>
+<li>hadoop</li>
+</ul>
+<p>Data are stored in a NoSQL MongoDB database, which is located on a cluster computer with a Hadoop architecture.</p>
+<ul>
+<li>heat-map</li>
+</ul>
+<p>Heat map of geo-referenced tweets showing where tweets were posted from between March and October 2016.</p>
+<ul>
+<li>histogram</li>
+</ul>
+<p>shows the histogram of accuracies for our configuration-space in both training and test partitions.</p>
+<ul>
+<li>hownet</li>
+</ul>
+<p>crawled online reviews and the HowNet sentiment dictionary.</p>
+<p>HowNet) in simplified Chinese are not suitable for this study because there are different cultural problems and different radicals for the same character.  11,000 positive/negative word senses, respectively. Although it is not necessary to use all Chinese words’ sentiment meanings to conduct an analysis</p>
+<p>Hownet 应用于简体中文x</p>
+<ul>
+<li>human-behavior</li>
+</ul>
+<p>focused on building multimodal human behavior analysis tools to extract sentiment in response to videos such as product advertisement.</p>
+<p>多模型人类行为分析 对视频反应从而决定产品广告</p>
+<ul>
+<li>ifwa</li>
+</ul>
+<p>intuitionistic fuzzy weighted averaging</p>
+<p>the IFWA operator is suitable to be used in the problems that the weights are assigned to the product features, whereas the IFOWA( intuitionistic fuzzy ordered weighted averaging) operator is suitable to be used in the problems that the weights are assigned to the ranking positions of feature values</p>
+<p>IFWA用于问题（权重被分配到产品特征<br>IFOWA 权重被分配到排序位置特征值</p>
+<ul>
+<li>ig<br>information gain</li>
+</ul>
+<p>IG is also one of the most used feature selection algorithms in sentiment classification ( Tan &amp; Zhang, 2008; Yang &amp; Ped-ersen, 1997 ). In IG algorithm, it is regarded that the larger uncertainty of a text is, the greater uncertainty of the sentiment class of the text will be.</p>
+<p>文本越不确定，情感分类越不确定</p>
+<ul>
+<li>igraph</li>
+</ul>
+<p>NetworkX and iGraph were used in network construction and analysis; visualizations were created in Gephi</p>
+<ul>
+<li>intraday </li>
+</ul>
+<p>(stock return, news-driven,  economic freedom, trade)</p>
+<ul>
+<li>investor</li>
+</ul>
+<p>(stock price, rank news, Asian market</p>
+<ul>
+<li>knn</li>
+</ul>
+<p>K-nearest neighbor (KNN).</p>
+<p>KNN is a popular instance-based learning algorithm ( Yang &amp; Liu, 1999 ), which has been shown as one of the most effective alg-rithms in sentiment classification ( Lam &amp; Han, 2003 ). In KNN, to<br>determine the sentiment class of a test text d l , K nearest neighbors are first selected from the training texts,</p>
+<p>k最近邻首选为训练文本</p>
+<hr>
+<ul>
+<li>language </li>
+</ul>
+<p>(Spanish tweet, Chinese stock market, microblog, multilingual, arabic literature, Chinese words)</p>
+<ul>
+<li>lda</li>
+</ul>
+<p>Topic modeling techniques make use of latent Dirichlet allocation (LDA) or its variants to automatically extract aspects from text.</p>
+<p>Key assumption of LDA model ( Fig. 1 (a)) is that a document is a compound distribution generated by different member probability distributions over words, and each member probability distribution corresponds to a topic.</p>
+<p>LDA is a generative model introduced by Blei, Ng, and Jordan (2003) that quickly gained popularity because it is unsupervised, flexible and extensible. LDA models documents as multinomial distributions of so-called topics. Topics are multinomial distributions of words over a fixed vocabulary.</p>
+<p>自动提取层次</p>
+<ul>
+<li>learning-to-rank (stock)</li>
+</ul>
+<p>First, learning-to-rank algorithms produce accurate predictions of expected return rankings, and the proposed stock selection approach works robustly under different financial market conditions. Secondly, the sentiment indicators [31,38] support ranking predictions consistently in reflecting individual stock’s future performances under different market conditions.<br>预测未来股市</p>
+<ul>
+<li>lexicon-based</li>
+</ul>
+<p>Lexicon-based methods make use of known positive and negative terms to classify feature sentiments and thus are domain independent, whereas machine learning methods excel in optimizing system parameters with a large training data set.</p>
+<p>Two sub-classifications can be found here: Dictionary-based and Corpus-based approaches.</p>
+<p>Typically, a sentiment lexicon consists of a set of terms in a specific language, carrying some kind of emotion weight, annotated along a number of dimensions. The number of dimensions (emotions) is lexicon-dependent while, for each dimension, a given term can be scored either in a binary manner (e.g. the term is characterized by the anger emotion or not), or by using a specific rating scale. (Ref to sentiment analysis leveraging)<br>情感分词由指定语言的词构成，情绪权重。</p>
+<ul>
+<li>liblinear</li>
+</ul>
+<p>We use an L2-loss L2-regularized support vector regression provided by LIBLINEAR, a library for large linear classification specifically good for document classification. Each support vector machine classifier receives a sparse matrix as an input and the sentiment score as the output and produces a real number between 0 and 1, inclusive.</p>
+<p>线性分类助于文档分类，SVM收稀疏矩阵作为输入和情感分数作为输出</p>
+<ul>
+<li>loocv</li>
+</ul>
+<p>Results are obtained by user-independent training with Leave-One-Out Cross-Validation<br>(LOOCV) scheme.</p>
+<p>According to this scheme, the number of folds is equal to the number of instances in the dataset.<br>重叠=数据集中事件</p>
+<ul>
+<li>lrr</li>
+</ul>
+<p>Latent Rating Regression (LRR) which is a kind of Latent Dirichlet Allocation to analyze both aspect ratings and aspect weights,<br>分析层面评分和权重</p>
+<ul>
+<li>lsa</li>
+</ul>
+<p>Latent Semantic Analysis (LSA)</p>
+<ul>
+<li>machine-learning</li>
+</ul>
+<p>Machine learning based methods. They are divided also in groups: supervised and unsupervised techniques. In addition, some authors mention a hybrid between these both: semi-supervised learning </p>
+<p>监督、非监督、半监督<br>(DT, NB, SVM, RBFNN and KNN) refer to multi-class sentiment</p>
+<p><strong>DT (Decision tree)</strong></p>
+<p>graphical representation of training samples, where leaves represent class labels of training samples and branches represent con-junctions of features that lead to the class labels. DT is an algorithm commonly used in data mining. The goal of DT is to construct a tree structure that predicts the values of test samples based on the training samples.</p>
+<p><strong>NB</strong></p>
+<p>in binary sentiment classification The NB algorithm is based on the assumption that the probability of each term in a text is independence in the term’s context and position in the text.<br>二进制根据每个词在语境中的独立性</p>
+<p><strong>SVM</strong></p>
+<p>Based on the structural risk minimization principle, the SVM seeks a hyperplane that separates the feature vectors of training texts into different sentiment classes with the maximum margin.</p>
+<p><strong>Radial basis function neural network (RBFNN)</strong></p>
+<p>RBFNN is an artificial neural network that uses radial basis functions as activation functions. RBFNN has strong nonlinear fitting ability and high reliability, and it performs well in many domains  RBFNN is a three-layer (input layer, hidden layer and output layer) feedforward network,</p>
+<p>ANN：非线性匹配三层（输入，隐藏和输出）</p>
+<p><strong>Radial basis function neural network (RBFNN)</strong></p>
+<p>a popular instance-based learning algorithm ( Yang &amp; Liu,1999 ), which has been shown as one of the most effective algorithms in sentiment classification ( Lam &amp; Han, 2003 ). In KNN, to determine the sentiment class of a test text, K nearest neighbors are first selected from the training texts<br>从训练文本中最近k邻居是首选</p>
+<hr>
+<ul>
+<li>map(多层分析</li>
+</ul>
+<p>Maximum A Posterior (MAP) technique to tackle the aspect sparsity problem.<br>estimate the rating on each aspect for each review.<br>处理层次散乱问题，推测不同评论的不同层次</p>
+<ul>
+<li>me</li>
+</ul>
+<p>Maximum Entropy<br>supervised techniques, support vector machines (SVM), Naive Bayes, Maximum Entropy</p>
+<ul>
+<li><p>micro-blog(twitter, hurricane, reef</p>
+</li>
+<li><p>mjst (microblog)</p>
+</li>
+</ul>
+<p>multimodal joint sentiment topic model<br>(MJST) for weakly supervised sentiment analysis in microblogging, which applies latent Dirichlet allocation (LDA) to simultaneously analyze sentiment and topic hidden in messages based the introduction of emoticons and microbloggers personality.<br>弱监督，微博分析hidden topic</p>
+<ul>
+<li>mkl (多核)</li>
+</ul>
+<p>multiple kernel learning (MKL) using support vector machine (SVM) as a classifier with different types of kernel.</p>
+<p>MKL was used simultaneously for optimizing different modalities in Alzheimer’s disease. However, in order to deal with co-morbidity with other diseases, they used the hinge loss function to penalize misclassified samples that did not scale well with the number of kernels.</p>
+<p>支持SVM多核，loss乘法错误分类的样本 alzhemier</p>
+<ul>
+<li>mlp</li>
+</ul>
+<p>MLP network is trained using a back-propagation algorithm which uses Empirical Risk Minimization. It tries to minimize the errors in training data. Once it finds the hyperplane, regardless of global or local optimum, the training process is stopped.</p>
+<p>训练back-propagation 减少错误</p>
+<ul>
+<li>mongodb</li>
+</ul>
+<p>Data are stored in a NoSQL MongoDB database, which is located on a cluster computer with a<br>Hadoop architecture.</p>
+<ul>
+<li>multimodal (multimodal emotions)</li>
+</ul>
+<p>multimodal sentiment analysis in different domains, including spoken reviews, images, video blogs, human–machine and human–human interactions.</p>
+<p>multimodal framework combining physiological analysis of the user and global sentiment-rating available on the internet. We have fused Electroencephalogram (EEG) waves of user and corresponding global textual comments of the video to understand the user’s preference more precisely.<br>语言图片视频</p>
+<ul>
+<li>naive-bayes</li>
+</ul>
+<p>Naive Bayes classifier is the most common probabilistic classifier and refers to a family of simple classifiers based on applying Bayes theorem with strong independence assumptions among the different variables or features.</p>
+<p>This method incorporates the Naive Bayes (NB) algorithm to compute the sentiment index of online reviews and then employs the sentiment index to extend the imitation coefficient in the Bass/Norton<br>model.</p>
+<p>The maximum accuracy was achieved by Yu, Hong and Vasileios Hatzivassiloglou10 by using Naive Bayes, a commonly used supervised machine-learning algorithm.</p>
+<p>This approach presupposes the availability of at least a collection of articles with pre-assigned opinion and fact labels at the document level. They used single words, without stemming or stopword removal as features. Naive Bayes assigns a document d to the class c, that maximizes P(c|d) by applying Bayes’ rule, P(c / d)= P(c)P(d / c)/ P(d)<br>在线评论情感</p>
+<ul>
+<li>net-optimism</li>
+</ul>
+<p>Net-Optimism provides not only robust results [32],but its simplicity makes later comparisons straightforward.</p>
+<ul>
+<li>networkx</li>
+</ul>
+<p>NetworkX [35] and iGraph [36] were used in network construction and analysis; visualizations were created in Gephi</p>
+<ul>
+<li>neuroimaging<br>(Eeg response)</li>
+</ul>
+<p>Various neuroimaging techniques have already been applied to study the cortical and subcortical<br>portions of the brain that get activated while watching pleasant or unpleasant video contents<br>神经网络</p>
+<ul>
+<li>nlp  </li>
+</ul>
+<p>(great reef, stanford nlp, web services (tools included)<br>Natural Language Processing</p>
+<p>DSocial NLP + DSocial NLP sentiment(in python)</p>
+<p>Emoticons are taken into account, since there are very common in social networks [60]. Thus, :-) or :-(express something positive or negative respectively</p>
+<p>常见问题</p>
+<p>• All capital letters are replaced by lower case letters.</p>
+<p>• The presence of special elements and symbols (e.g., URLs, usernames, commas) are substituted.</p>
+<p>• Additional white spaces are removed because they do not provide semantic information.</p>
+<p>• Hashtags symbols (#) are removed from the words they precede in order to be part of the text.</p>
+<p>• Informal intensifiers and character repetitions are also identified.</p>
+<p>• A list of stopwords is also used to remove very common words that can reduce the performance of the classifier.<br>大写，表情符号，url，空格，#</p>
+<p>SharpNLP POS tagger for dutch </p>
+<ul>
+<li>norton-model(sales products forecast)</li>
+</ul>
+<p>combines the Bass/Norton model and sentiment analysis while using historical sales data and online review data is developed for product sales forecasting.<br>结合bass/Norton和情感分析预测销售</p>
+<ul>
+<li>nosql</li>
+</ul>
+<p>future real-time assessments will require stable systems (including back up for power outage) to ensure no loss of data. Data are stored in a NoSQL MongoDB database, which is located on a cluster computer with a Hadoop architecture.<br>无损数据库</p>
+<ul>
+<li>ntlk(hotel rating)<br>platforms in python </li>
+</ul>
+<ul>
+<li>ntusd (Chinese use)<br>(National Taiwan University Sentiment Dictionary)</li>
+</ul>
+<p>a predefined wordlist with positive/negative that has been most commonly applied for text mining in traditional Chinese environment, Chinese. It includes 1122 positive words and 4525 negative words after it was subjected to CKIP part-of-speech processing.</p>
+<p>If such a list existed, we could use it as a keyword list and apply the same analysis approach as the NTUSD method by searching for keywords in the extracted list and collocations as machine learning features.</p>
+<p>词典pos和neg/pos繁体中文，用作关键词表</p>
+<ul>
+<li>opensmile</li>
+</ul>
+<p>the openSMILE toolkit was used to extract various features from audio;<br>PLP –The Perceptual Linear Predictive Coefficients of the audio segment were calculated using the openSMILE toolkit.<br>用于提取音频特征</p>
+<ul>
+<li>opinion</li>
+</ul>
+<p>Tweets , short reviews, websites, airports, products, web services, arabic literature</p>
+<ul>
+<li>ordinal</li>
+</ul>
+<p>Ordinal-based integration<br>In set theory, an ordinal number is the order type of a well-ordered set. Like other kinds of numbers, ordinals can be added and multiplied.</p>
+<p>In OIFV method, whole features are ranked and then sorted in descending order by feature selection methods in each feature vector respectively. After feature ranking by five feature selection methods, we obtain the ordinal-based features vector (OFV) using the OIFV method.<br>特征选择，倒序排列特征</p>
+<ul>
+<li>pmi<br>Point-wise Mutual Information (PMI)</li>
+</ul>
+<p>model the mutual information between the features and the classes. This measure was derived from the information theory. The point-wise mutual information (PMI)Mi(w) between the word w and the class i is defined on the basis of the level of co-occurrence between the class i and word w. The expected co-occurrence of class i and word w, on the basis of mutual independence, is given by Pi x F(w), and the true co-occurrence is given by F(w) x pi(w).</p>
+<p>模拟特征和类别中的相互信息</p>
+<ul>
+<li>polarity<br>Products review rating neg/pos</li>
+</ul>
+<p>In the test phase, for each record T i , ALGA ( D m , T i , L k best) is computed in which k best is the best chromosome in the final iteration in terms of fitness. If the score is greater than zero, the test record is assigned to the positive class; otherwise, it is assigned to the negative class.<br>分数大于0，即为积极<br>Use in twitter</p>
+<p>SentimentAnalyzer is a simple web service which computes sentiment for English, German or French texts. It is able to classify the polarity (positive, negative or neutral) of a whole text and score it in the range<br>3类适用语言</p>
+<p>SentiRate </p>
+<p>Polarity is grouped into 11 categories: very_positive, quite_positive, positive, fairly_positive, a_little_positive, neutral, a_little_negative, fairly_negative, negative, quite_negative,<br>very_negative. It also scores each sentence or the whole text by number with two decimals.<br>11类形容词</p>
+<ul>
+<li><p>pos<br>Parts of speech (POS): finding adjectives, as they are important indicators of opinions.<br>查找形容词</p>
+</li>
+<li><p>predict<br>预测销售成绩，广告喜好<br>预测产品服务rating </p>
+</li>
+<li><p>product<br>Suv on amazon  通过online reviews</p>
+</li>
+</ul>
+<p>crawl-prepocess （分词 和pos tag，去除stopwords）-正负词词典</p>
+<p>关系：销售和评价<br>电影评价</p>
+<ul>
+<li><p>pso (particle swarm optimization<br>effective selection of optimal parameter values for SVM.</p>
+</li>
+<li><p>python<br>Trading </p>
+</li>
+</ul>
+<p>Using the Python library BeautifulSoup , we extract all messages published on StockTwits between January 1, 2012, and December 31, 2016, and we store them in a MongoDB NoSQL database.</p>
+<p>Machine learning package scikit-learn</p>
+<ul>
+<li>radical （偏旁seed<br>PMI-radical, PMI-word<br>compare with NTUSD<br>Radical-based approach 尤其适用于鸟凤，繁体字</li>
+</ul>
+<p>FR-Rank approach to extract frequently used nodes as keywords,</p>
+<p>dataset：trip advisor restaurant</p>
+<ul>
+<li>real-time(trading, online-social media)</li>
+</ul>
+<p>a real-time news analytics framework</p>
+<p>developed a real-time quantitative trading system based on six technical indicators and it generates positive returns with statistical significance.</p>
+<ul>
+<li><p>recommender (产品比较web service)<br>IMDb list rating</p>
+</li>
+<li><p>regression (investor)</p>
+</li>
+</ul>
+<p>examine the heterogeneous effect of investor psychology on conditional<br>institutional trading behavior by applying a quantile regression.</p>
+<p>We perform OLS regressions and QR estimations for the<br>conditional ETF return distribution quantiles.</p>
+<ul>
+<li>reinforcement-learning<br>to predict negation scopes.</li>
+</ul>
+<p>learn a so-called agent from the outcome of its actions on the basis of past experience. This method tries to replicate human-like learning and thus appears well suited for natural language processing.</p>
+<p>introduces a so-called state-action function Q(si, ai)that defines the expected value of each possible action ai in each state si. If Q(si, ai) is known, then the optimal policy p∗(si, ai) is given by the<br>action ai that maximizes Q(si, ai) given the state si. Consequently, the<br>learning problem of the agent is to maximize the expected reward by</p>
+<p>学习以往经验，预测</p>
+<ul>
+<li>rnn</li>
+</ul>
+<p>recurrent neural network (RNN) has been discussed for the aspect term extraction task.</p>
+<ul>
+<li>semeval( multilingual dataset)</li>
+</ul>
+<p>topic modelling based approaches on the SemEval2016 task 5 dataset.</p>
+<p>consists of restaurant reviews in several languages. Reviews are split by sentence and labelled with explicit aspect-term mentions, the coarse-grained domain aspect or category<br>无语言限制，情感分析大会，酒店评价</p>
+<ul>
+<li>sentislangnet</li>
+</ul>
+<p>a novel unsupervised method based on linguistic sentiment propagation model to predict the sentiments in informal texts.<br>非监督 语言预测</p>
+<ul>
+<li>sentistrength</li>
+</ul>
+<p>This tool is a lexicon-based sentiment evaluator that is specially focused on short social web texts written in English. The classification will be in five different classes: positive, negative, neutral, extremely negative and extremely positive.</p>
+<p>returns a positive score, from 1 (not positive) to 5 (extremely positive), a negative score from -1 (not negative) to -5 (extremely negative), and a neutral label taking the values: -1 (negative), 0 (neutral), and<br>1 (positive).</p>
+<p>英语：将社交网络短文本分类为五类</p>
+<ul>
+<li>snowball</li>
+</ul>
+<p>(twitter Spanish sentiment<br>the Snowball Stemmer for the Spanish language implemented in NLTK package<br>无语言限制</p>
+<ul>
+<li>srs (Simple Random Sampling</li>
+</ul>
+<p>sample size should be less than 10% of the population size.<br>样本大小应小于总体10%</p>
+<ul>
+<li>stanford-corenlp</li>
+</ul>
+<p>tokenize, lemmatize, and POS tag the English documents and the Chinese documents.</p>
+<p>Stanford CoreNLP created a sentiment classifier based on deep learning technique called recursive neural network that builds on top of grammatical structures.<br>无语言限制</p>
+<ul>
+<li><p>state-wide</p>
+<p>Map印度货币面额流通</p>
+</li>
+<li><p>stock</p>
+</li>
+</ul>
+<p>stock return volatility. (W/ heat map<br>股票波动</p>
+<ul>
+<li>stopwords (pre processing)<br>eg. A the they I </li>
+</ul>
+<ul>
+<li>svm</li>
+</ul>
+<p>(support vector machines (binary class)</p>
+<p>To be trained with larger dataset<br>vector representing the hyperplane that separates the feature vectors of training texts belonging the two sentiment classes C i and C i</p>
+<p>分开训练文本两个情感类的特征向量<br>(There are 5 machine learning) </p>
+<ul>
+<li>textblob (in python)</li>
+</ul>
+<p>The score polarity is a float in the range [-1.0,1.0] and subjectivity varies within the range [0.0, 1.0], where 0.0 is very objective and 1.0 is very subjective.</p>
+<p>极性区间-1至1，主观打分0-1（0为客观）<br>eg. Mysentimentapi(java) affin(ANEW w/ python) 比较手机（company event</p>
+<ul>
+<li>tfidf （weighting schema<br>比较tf和tfdif在movie data和product data的performance<br>TermFrequency Inverse Document Frequency (TF-IDF).</li>
+</ul>
+<p>如果某个词或短语在一篇文章中出现的频率TF高，并且在其他文章中很少出现，则认为此词或者短语具有很好的类别区分能力，适合用来分类。TFIDF实际上是：TF * IDF，TF词频(Term Frequency)，IDF反文档频率(Inverse Document Frequency)</p>
+<ul>
+<li>tokenizers<br>word n -grams<br>N-words are word sequences. To compute the n-words, the text is tokenized and n-word are calculated from tokens. NLTK Tokenizer is used to identified word tokens.</li>
+</ul>
+<p>For example, let T = ‘‘the lights and shadows of your future’’ , its 1-words (unigrams) are each word alone, and its 2-words (bigrams) set are the sequences of two words, the set (  W T2 ), and so on. For example, let W T 2 ={ the lights, lights and, and shadows, shadows of, of your, your future } , then, given a text of m words, we obtain a set { the lights, lights and, and shadows, shadows of, of your, your future } , then, given a text of m words, we obtain a set with at most exists 127 possible combinations of tokenizers, that is, the powerset of { 2 -words , 1 -words , 3 -grams , 4 -grams , 5 -grams , 6 -grams , 7 -grams } ,</p>
+<p>标记生成器，n个词标记。比如bigrams即一句话中抽取相连两个词的集合</p>
+<ul>
+<li>vader</li>
+</ul>
+<p>(Classify tweets positive/negatvie)<br>Valence Aware Dictionary for Sentiment Reasoning (VADER) is a rule-based model<br>that combines a general lexicon and a series of intensifiers, punctuation transformation, emoticons, and many other heuristics to compute sentiment polarity of a review or text.</p>
+<p>分词，结合一般词库和增强标点转换，表情符号以计算文本的极性</p>
+<ul>
+<li>video<br>EEG signal and comments (textblob predict ratings)</li>
+</ul>
+<ol>
+<li>To increase the number of data samples, the acquired EEG signals corresponding to each video were divided into 8 equal parts. Thus we achieved a total dataset of 3000 signals (i.e. 15×8×25) for 15<br>videos.(regression analysis)</li>
+<li>Crawl comments from YoutubeAPI(Naive-Bayes Analyzer and a polarity score between −1.0 and 1.0 was assigned to each sentence.</li>
+</ol>
+<p>EEG信号预测评分</p>
+<ol>
+<li>增加数据样本，每个视频对应的EEG信号分为8等份，因此15个视频对应3000个信号数据集</li>
+<li>通过YoutubeAPI抓取评论（NB分类和极性打分）</li>
+</ol>
+<ul>
+<li><p>visual-sentiment<br>analyzing images and their associated tags posted on social media.<br>分析图片和社交网络上附带标签<br>using CNN, used an AlexNet model pre-trained on ImageNet, simply as a feature extractor [123] with SVMs and logistic regression classifiers,<br>特征提取器：CNN和ImageNet上的AlexNet模型，作为带有SVM和逻辑回归分类功能</p>
+</li>
+<li><p>VSM</p>
+</li>
+</ul>
+<p>Vector Space Model (VSM) is exploited to represent documents for sentiment analysis task. The weight of each term in a document’s vector is the key component of the VSM of document representation that measures the importance of the term in a document.</p>
+<p>In the indexing process, two features are of main concern: statistical term weighting where term weighting is based on discriminative supremacy of a term that appears in a document or a group of documents and semantic term weighting where term weighting is based on a term’s meaning</p>
+<p>文档层次上，测试一个词在文档中的重要性。统计词的权重（展示词在文档中的主导地位）和语义的词权重</p>
+<ul>
+<li>W2LVDA</li>
+</ul>
+<p>an almost unsupervised system based on topic modelling that, combined with some other unsupervised methods and a minimal configuration step, performs aspect category classification, aspect-term and opinion-word separation and sentiment polarity classification for any given domain and language.</p>
+<p>无语言限制，几乎非监督，结合其他非监督方法，表现层次处理分类（层面词，意见词，极性词）<br>Input: 用户评价、评价具体方面（食物服务）、正负词（excellent<br>Output:</p>
+<ol>
+<li>评价方面aspect term，具体方面形容词（yummy、tasteless）</li>
+<li>整个domain的权重和极性</li>
+</ol>
+<ul>
+<li><p>webservice<br>比较评分15个具体web services 如alchemy api</p>
+</li>
+<li><p>wom<br>Word of mouth 通过网上评价或微博影响消费决定</p>
+</li>
+</ul>
+<ul>
+<li>word2vec</li>
+</ul>
+<p>Word Embeddings – We employ the publicly available word2vec vectors that were trained on 100 billion words from Google News. The vectors have dimensionality 300 trained using the continuous bag-of-words architecture . Words not present in the set of pre-trained words are initialized randomly.</p>
+<p>词嵌套，word2vec向量通过训练Google新闻上的100十亿词获得300个训练后CBOW架构<br>非监督Unsupervised 通过发现cooccurrence of words语境中含义和关系（机器学习中Recurrent or Deep Neural Networks.）</p>
+<p>包括两个算法<br>（适用多频）1。Continuous Bag-of-Words algorithm (CBOW) （通过已知周围词语预测一个词语<br>（适用少词语）2.Continuous Skip-Gram algorithm (Skip-gram) 通过已知单个词语预测一组词语</p>
+<ul>
+<li>wordcloud</li>
+</ul>
+<p>词云：提取词频-酒店电影评价</p>
+<ul>
+<li>wordnet（常用dict）</li>
+</ul>
+<p>词典ontology 偏旁 synonyms and antonyms.<br>which words are adjectives like ‘great’, ‘amazing’, ‘wonderful’,</p>
+<ul>
+<li>youtube</li>
+</ul>
+<p>We use positive and negative as sentiment classes in the classification problem. In the annotations provided with the YouTube dataset, each video was segmented into utterances and each of the utterances has the length of a few seconds. Every utterance was annotated as either 1, 0 and −1, denoting positive, neutral and negative sentiment.</p>
+<p>Using a matlab code, we converted all videos innotated as either 1, 0 and −1, denoting positive, neutral and negative sentiment. Using a matlab code, we converted all videos in the dataset to image frames, after which we extracted facial features from each image frame. To extract facial characteristic points(FCPs) from the images, we used the facial recognition library CLM-Z</p>
+<p>使用积极消极词来分类：在YouTube数据集中，我们将视频分成以数秒为间隔的小片段，分别以1，0，-1来表达积极、中性与消极。通过matlab代码，我们将所有视频转换成图片帧，随后通过使用面部识别库CLM-Z 提取图片中的面部特征facial characteristic points(FCPs)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SA/" rel="tag"># SA</a>
+          
+            <a href="/tags/Data-Analysis/" rel="tag"># Data Analysis</a>
+          
+            <a href="/tags/CNN/" rel="tag"># CNN</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/19/first-post/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+    <div style="text-align:center;">
+    <button class="btn" id="load-disqus" onclick="disqus.load();">Loading Disqus Comments</button>
+    </div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/and.jpg"
+               alt="Izzy Qiu" />
+          <p class="site-author-name" itemprop="name">Izzy Qiu</p>
+           
+              <p class="site-description motion-element" itemprop="description">Coding | Life | Music | Travel</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yzziqiu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="yisiqiu dot izzy at gmail dot com" target="_blank" title="E-mail">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      E-mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#领域"><span class="nav-number">1.</span> <span class="nav-text">领域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用途"><span class="nav-number">2.</span> <span class="nav-text">用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战"><span class="nav-number">3.</span> <span class="nav-text">挑战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Steps"><span class="nav-number">4.</span> <span class="nav-text">Steps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">5.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">6.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主题抽取"><span class="nav-number">6.1.</span> <span class="nav-text">主题抽取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系抽取"><span class="nav-number">7.</span> <span class="nav-text">关系抽取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">8.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习"><span class="nav-number">9.</span> <span class="nav-text">机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-science-in-python"><span class="nav-number">10.</span> <span class="nav-text">data science in python</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#词云"><span class="nav-number">10.1.</span> <span class="nav-text">词云</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他资源"><span class="nav-number">10.2.</span> <span class="nav-text">其他资源</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods-Fields"><span class="nav-number"></span> <span class="nav-text">Methods + Fields</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Izzy Qiu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
