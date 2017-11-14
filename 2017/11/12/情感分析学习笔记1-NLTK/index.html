@@ -97,7 +97,7 @@
 <meta name="description" content="NLTKPractical examples of natural language processing (NLP) like speech recognition, speech translation, understanding complete sentences, understanding synonyms of matching words, and writing complet">
 <meta name="keywords" content="python,Sentiment Analysis,NLTK">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sentiment Analysi Notes 1.NLTK">
+<meta property="og:title" content="Sentiment Analysi Notes 1.0 NLTK Basic">
 <meta property="og:url" content="http://www.yisiqiu.com/2017/11/12/情感分析学习笔记1-NLTK/index.html">
 <meta property="og:site_name" content="Izzy Notes">
 <meta property="og:description" content="NLTKPractical examples of natural language processing (NLP) like speech recognition, speech translation, understanding complete sentences, understanding synonyms of matching words, and writing complet">
@@ -105,14 +105,14 @@
 <meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/c2dcf5fe2c403dc6c514bb5a7de6630d.png">
 <meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/116f5f3578f23a6272c3bc38f7562607.png">
 <meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/d2cf66da114a2d4950556266191b3494.png">
-<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/5884875dd3a8f66dfbe70b65f6d34e2f.png">
-<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/8b692846a93ddfb87bd7795699832a45.png">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/bbea2fd36b5d05643715e2ed32b41434.png">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/c3533074b06907752bbbb566a87cfe9a.png">
 <meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/b3a5e5cbe79e403e59697857da525931.png">
 <meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/9baae492a9a6aa3b4bc47257d5827a29.png">
 <meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/f26e4084e7ef97dadbe23028f22f542c.png">
-<meta property="og:updated_time" content="2017-11-14T02:38:16.000Z">
+<meta property="og:updated_time" content="2017-11-14T03:04:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sentiment Analysi Notes 1.NLTK">
+<meta name="twitter:title" content="Sentiment Analysi Notes 1.0 NLTK Basic">
 <meta name="twitter:description" content="NLTKPractical examples of natural language processing (NLP) like speech recognition, speech translation, understanding complete sentences, understanding synonyms of matching words, and writing complet">
 <meta name="twitter:image" content="http://oy5q9ym8j.bkt.clouddn.com/c2dcf5fe2c403dc6c514bb5a7de6630d.png">
 
@@ -149,7 +149,7 @@
 
 
 
-  <title>Sentiment Analysi Notes 1.NLTK | Izzy Notes</title>
+  <title>Sentiment Analysi Notes 1.0 NLTK Basic | Izzy Notes</title>
   
 
 
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Sentiment Analysi Notes 1.NLTK</h1>
+          <h1 class="post-title" itemprop="name headline">Sentiment Analysi Notes 1.0 NLTK Basic</h1>
         
 
         <div class="post-meta">
@@ -402,9 +402,9 @@
 <p><img src="http://oy5q9ym8j.bkt.clouddn.com/116f5f3578f23a6272c3bc38f7562607.png" alt="">BS4</p>
 <h4 id="Count-Word-Frequency"><a href="#Count-Word-Frequency" class="headerlink" title="Count Word Frequency"></a>Count Word Frequency</h4><h1 id="calculate-frequency-using-FreqDist"><a href="#calculate-frequency-using-FreqDist" class="headerlink" title="calculate frequency using FreqDist()"></a>calculate frequency using FreqDist()</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">from bs4 import BeautifulSoup</div><div class="line">import urllib.request</div><div class="line">import nltk</div><div class="line">response = urllib.request.urlopen(&apos;http://php.net/&apos;)</div><div class="line">html = response.read()</div><div class="line">soup = BeautifulSoup(html,&quot;html5lib&quot;)</div><div class="line">text = soup.get_text(strip=True)</div><div class="line">tokens = [t for t in text.split()]</div><div class="line">freq = nltk.FreqDist(tokens)</div><div class="line">for key,val in freq.items():</div><div class="line">    print (str(key) + &apos;:&apos; + str(val))</div><div class="line"># plot a graph</div><div class="line">freq.plot(20, cumulative=False)</div></pre></td></tr></table></figure>
 <p><img src="http://oy5q9ym8j.bkt.clouddn.com/d2cf66da114a2d4950556266191b3494.png" alt="">freq</p>
-<p><img src="http://oy5q9ym8j.bkt.clouddn.com/5884875dd3a8f66dfbe70b65f6d34e2f.png" alt="">Figure_1.png</p>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/bbea2fd36b5d05643715e2ed32b41434.png" alt="">Screen Shot 2017-11-14 at 11.02.25 AM</p>
 <h4 id="Remove-Stop-Words-Using-NLTK"><a href="#Remove-Stop-Words-Using-NLTK" class="headerlink" title="Remove Stop Words Using NLTK"></a>Remove Stop Words Using NLTK</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">from bs4 import BeautifulSoup</div><div class="line">import urllib.request</div><div class="line">import nltk</div><div class="line"></div><div class="line">from nltk.corpus import stopwords</div><div class="line">response = urllib.request.urlopen(&apos;http://php.net/&apos;)</div><div class="line">html = response.read()</div><div class="line">soup = BeautifulSoup(html,&quot;html5lib&quot;)</div><div class="line">text = soup.get_text(strip=True)</div><div class="line">tokens = [t for t in text.split()]</div><div class="line"># copy a list of tokens</div><div class="line">clean_tokens = tokens[:]</div><div class="line">sr = stopwords.words(&apos;english&apos;)</div><div class="line">for token in tokens:</div><div class="line">    if token in stopwords.words(&apos;english&apos;):</div><div class="line">        clean_tokens.remove(token)</div><div class="line">freq = nltk.FreqDist(clean_tokens)</div><div class="line">for key,val in freq.items():</div><div class="line">    print (str(key) + &apos;:&apos; + str(val))</div><div class="line"></div><div class="line"># plot</div><div class="line">freq.plot(20,cumulative=False)</div></pre></td></tr></table></figure>
-<p><img src="http://oy5q9ym8j.bkt.clouddn.com/8b692846a93ddfb87bd7795699832a45.png" alt="">Figure_2.png</p>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/c3533074b06907752bbbb566a87cfe9a.png" alt="">Screen Shot 2017-11-14 at 11.02.35 AM</p>
 <h4 id="Tokenize-the-text-we-got"><a href="#Tokenize-the-text-we-got" class="headerlink" title="Tokenize the text we got"></a>Tokenize the text we got</h4><h1 id="use-PunktSentenceTokenizer"><a href="#use-PunktSentenceTokenizer" class="headerlink" title="use PunktSentenceTokenizer"></a>use PunktSentenceTokenizer</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">from nltk.tokenize import word_tokenize</div><div class="line">mytext = &quot;Hello Mr. Adam, how are you? I hope everything is going well. Today is a good day, see you dude.&quot;</div><div class="line">print(word_tokenize(mytext))</div></pre></td></tr></table></figure>
 <p><img src="http://oy5q9ym8j.bkt.clouddn.com/b3a5e5cbe79e403e59697857da525931.png" alt="">stop</p>
 <h4 id="tokenize-non-english-languages-text"><a href="#tokenize-non-english-languages-text" class="headerlink" title="tokenize non-english languages text"></a>tokenize non-english languages text</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">from nltk.tokenize import sent_tokenize</div><div class="line">mytext = &quot;Bonjour M. Adam, comment allez-vous? J&apos;espère que tout va bien. Aujourd&apos;hui est un bon jour.&quot;</div><div class="line">print(sent_tokenize(mytext,&quot;french&quot;))</div></pre></td></tr></table></figure>
@@ -458,6 +458,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/13/情感分析学习笔记1-1-NLTK-Naive-Bayes/" rel="prev" title="情感分析学习笔记1.1 NLTK Naive-Bayes">
+                情感分析学习笔记1.1 NLTK Naive-Bayes <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -534,7 +538,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -556,7 +560,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
