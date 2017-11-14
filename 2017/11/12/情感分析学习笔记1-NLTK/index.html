@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python,Sentiment Analysis,NLTK," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="NLTKPractical examples of natural language processing (NLP) like speech recognition, speech translation, understanding complete sentences, understanding synonyms of matching words, and writing complet">
+<meta name="keywords" content="python,Sentiment Analysis,NLTK">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sentiment Analysi Notes 1.NLTK">
+<meta property="og:url" content="http://www.yisiqiu.com/2017/11/12/情感分析学习笔记1-NLTK/index.html">
+<meta property="og:site_name" content="Izzy Notes">
+<meta property="og:description" content="NLTKPractical examples of natural language processing (NLP) like speech recognition, speech translation, understanding complete sentences, understanding synonyms of matching words, and writing complet">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/c2dcf5fe2c403dc6c514bb5a7de6630d.png">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/116f5f3578f23a6272c3bc38f7562607.png">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/d2cf66da114a2d4950556266191b3494.png">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/5884875dd3a8f66dfbe70b65f6d34e2f.png">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/8b692846a93ddfb87bd7795699832a45.png">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/b3a5e5cbe79e403e59697857da525931.png">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/9baae492a9a6aa3b4bc47257d5827a29.png">
+<meta property="og:image" content="http://oy5q9ym8j.bkt.clouddn.com/f26e4084e7ef97dadbe23028f22f542c.png">
+<meta property="og:updated_time" content="2017-11-14T02:38:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sentiment Analysi Notes 1.NLTK">
+<meta name="twitter:description" content="NLTKPractical examples of natural language processing (NLP) like speech recognition, speech translation, understanding complete sentences, understanding synonyms of matching words, and writing complet">
+<meta name="twitter:image" content="http://oy5q9ym8j.bkt.clouddn.com/c2dcf5fe2c403dc6c514bb5a7de6630d.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yisiqiu.com/2017/11/12/情感分析学习笔记1-NLTK/"/>
+
+
+
+
+
+  <title>Sentiment Analysi Notes 1.NLTK | Izzy Notes</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Izzy Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Just a girl with a laptop</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yisiqiu.com/2017/11/12/情感分析学习笔记1-NLTK/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Izzy Qiu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/and.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Izzy Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Sentiment Analysi Notes 1.NLTK</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-12T10:31:42+08:00">
+                2017-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="NLTK"><a href="#NLTK" class="headerlink" title="NLTK"></a>NLTK</h3><p>Practical examples of natural language processing (NLP) like speech recognition, speech translation, understanding complete sentences, understanding synonyms of matching words, and writing complete grammatically correct sentences and paragraphs.</p>
+<p>Benefits</p>
+<ol>
+<li>Search engines Google</li>
+<li>Social website feeds Facebook</li>
+<li>Speech engine Siri<br>open source Natural Language Processing (NLP) libraries</li>
+</ol>
+<ul>
+<li>Natural language toolkit (NLTK)</li>
+<li>Apache OpenNLP</li>
+<li>Stanford NLP suite</li>
+<li>Gate NLP library<br>pip3 install nltk</li>
+</ul>
+ <a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># python version varies</div><div class="line">import nltk</div><div class="line">nltk.download()</div><div class="line"># install all packages</div></pre></td></tr></table></figure>
+<h4 id="Tokenize-Text-Using-Pure-Python"><a href="#Tokenize-Text-Using-Pure-Python" class="headerlink" title="Tokenize Text Using Pure Python"></a>Tokenize Text Using Pure Python</h4><h1 id="crawl-webpage"><a href="#crawl-webpage" class="headerlink" title="crawl webpage"></a>crawl webpage</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import urllib.request</div><div class="line">response = urllib.request.urlopen(&apos;http://php.net/&apos;)</div><div class="line">html = response.read()</div><div class="line">print (html)</div><div class="line"># lots of html tags</div><div class="line"># clean data</div><div class="line">from bs4 import BeautifulSoup</div><div class="line">import urllib.request</div><div class="line">response = urllib.request.urlopen(&apos;http://php.net/&apos;)</div><div class="line">html = response.read()</div><div class="line">soup = BeautifulSoup(html,&quot;html5lib&quot;)</div><div class="line">text = soup.get_text(strip=True)</div><div class="line">print (text)</div></pre></td></tr></table></figure>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/c2dcf5fe2c403dc6c514bb5a7de6630d.png" alt="">HTML</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># convert text into tokens</div><div class="line">from bs4 import BeautifulSoup</div><div class="line">import urllib.request</div><div class="line">response = urllib.request.urlopen(&apos;http://php.net/&apos;)</div><div class="line">html = response.read()</div><div class="line">soup = BeautifulSoup(html,&quot;html5lib&quot;)</div><div class="line">text = soup.get_text(strip=True)</div><div class="line">tokens = [t for t in text.split()]</div><div class="line">print (tokens)</div></pre></td></tr></table></figure>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/116f5f3578f23a6272c3bc38f7562607.png" alt="">BS4</p>
+<h4 id="Count-Word-Frequency"><a href="#Count-Word-Frequency" class="headerlink" title="Count Word Frequency"></a>Count Word Frequency</h4><h1 id="calculate-frequency-using-FreqDist"><a href="#calculate-frequency-using-FreqDist" class="headerlink" title="calculate frequency using FreqDist()"></a>calculate frequency using FreqDist()</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">from bs4 import BeautifulSoup</div><div class="line">import urllib.request</div><div class="line">import nltk</div><div class="line">response = urllib.request.urlopen(&apos;http://php.net/&apos;)</div><div class="line">html = response.read()</div><div class="line">soup = BeautifulSoup(html,&quot;html5lib&quot;)</div><div class="line">text = soup.get_text(strip=True)</div><div class="line">tokens = [t for t in text.split()]</div><div class="line">freq = nltk.FreqDist(tokens)</div><div class="line">for key,val in freq.items():</div><div class="line">    print (str(key) + &apos;:&apos; + str(val))</div><div class="line"># plot a graph</div><div class="line">freq.plot(20, cumulative=False)</div></pre></td></tr></table></figure>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/d2cf66da114a2d4950556266191b3494.png" alt="">freq</p>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/5884875dd3a8f66dfbe70b65f6d34e2f.png" alt="">Figure_1.png</p>
+<h4 id="Remove-Stop-Words-Using-NLTK"><a href="#Remove-Stop-Words-Using-NLTK" class="headerlink" title="Remove Stop Words Using NLTK"></a>Remove Stop Words Using NLTK</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">from bs4 import BeautifulSoup</div><div class="line">import urllib.request</div><div class="line">import nltk</div><div class="line"></div><div class="line">from nltk.corpus import stopwords</div><div class="line">response = urllib.request.urlopen(&apos;http://php.net/&apos;)</div><div class="line">html = response.read()</div><div class="line">soup = BeautifulSoup(html,&quot;html5lib&quot;)</div><div class="line">text = soup.get_text(strip=True)</div><div class="line">tokens = [t for t in text.split()]</div><div class="line"># copy a list of tokens</div><div class="line">clean_tokens = tokens[:]</div><div class="line">sr = stopwords.words(&apos;english&apos;)</div><div class="line">for token in tokens:</div><div class="line">    if token in stopwords.words(&apos;english&apos;):</div><div class="line">        clean_tokens.remove(token)</div><div class="line">freq = nltk.FreqDist(clean_tokens)</div><div class="line">for key,val in freq.items():</div><div class="line">    print (str(key) + &apos;:&apos; + str(val))</div><div class="line"></div><div class="line"># plot</div><div class="line">freq.plot(20,cumulative=False)</div></pre></td></tr></table></figure>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/8b692846a93ddfb87bd7795699832a45.png" alt="">Figure_2.png</p>
+<h4 id="Tokenize-the-text-we-got"><a href="#Tokenize-the-text-we-got" class="headerlink" title="Tokenize the text we got"></a>Tokenize the text we got</h4><h1 id="use-PunktSentenceTokenizer"><a href="#use-PunktSentenceTokenizer" class="headerlink" title="use PunktSentenceTokenizer"></a>use PunktSentenceTokenizer</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">from nltk.tokenize import word_tokenize</div><div class="line">mytext = &quot;Hello Mr. Adam, how are you? I hope everything is going well. Today is a good day, see you dude.&quot;</div><div class="line">print(word_tokenize(mytext))</div></pre></td></tr></table></figure>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/b3a5e5cbe79e403e59697857da525931.png" alt="">stop</p>
+<h4 id="tokenize-non-english-languages-text"><a href="#tokenize-non-english-languages-text" class="headerlink" title="tokenize non-english languages text"></a>tokenize non-english languages text</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">from nltk.tokenize import sent_tokenize</div><div class="line">mytext = &quot;Bonjour M. Adam, comment allez-vous? J&apos;espère que tout va bien. Aujourd&apos;hui est un bon jour.&quot;</div><div class="line">print(sent_tokenize(mytext,&quot;french&quot;))</div></pre></td></tr></table></figure>
+<h4 id="finding-synonyms-wordnet-similar"><a href="#finding-synonyms-wordnet-similar" class="headerlink" title="finding synonyms wordnet (similar)"></a>finding synonyms wordnet (similar)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">from nltk.corpus import wordnet</div><div class="line">syn = wordnet.synsets(&quot;pain&quot;)</div><div class="line">print(syn[0].definition())</div><div class="line">print(syn[0].examples())</div><div class="line"></div><div class="line"></div><div class="line">from nltk.corpus import wordnet</div><div class="line">syna = wordnet.synsets(&quot;NLP&quot;)</div><div class="line">print(syna[0].definition())</div><div class="line">syna = wordnet.synsets(&quot;Python&quot;)</div><div class="line">print(syna[0].definition())</div><div class="line"></div><div class="line">from nltk.corpus import wordnet</div><div class="line">synonyms = []</div><div class="line">for syn in wordnet.synsets(&apos;Computer&apos;):</div><div class="line">    for lemma in syn.lemmas():</div><div class="line">        synonyms.append(lemma.name())</div><div class="line">print(synonyms)</div></pre></td></tr></table></figure>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/9baae492a9a6aa3b4bc47257d5827a29.png" alt="">Screen Shot 2017-11-14 at 10.26.22 AM</p>
+<h4 id="finding-synonyms-wordnet-opposite"><a href="#finding-synonyms-wordnet-opposite" class="headerlink" title="finding synonyms wordnet (opposite)"></a>finding synonyms wordnet (opposite)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">from nltk.corpus import wordnet</div><div class="line">antonyms = []</div><div class="line">for syn in wordnet.synsets(&quot;new&quot;):</div><div class="line">    for l in syn.lemmas():</div><div class="line">        if l.antonyms():</div><div class="line">            antonyms.append(l.antonyms()[0].name())</div><div class="line">print(antonyms)</div></pre></td></tr></table></figure>
+<p><img src="http://oy5q9ym8j.bkt.clouddn.com/f26e4084e7ef97dadbe23028f22f542c.png" alt="">Screen Shot 2017-11-14 at 10.27.22 AM</p>
+<h4 id="stemming-word"><a href="#stemming-word" class="headerlink" title="stemming word"></a>stemming word</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># original word</div><div class="line"></div><div class="line">from nltk.stem import PorterStemmer</div><div class="line">stemmer = PorterStemmer()</div><div class="line">print(stemmer.stem(&apos;working’))</div><div class="line"># work</div></pre></td></tr></table></figure>
+<h4 id="stem-non-english-words"><a href="#stem-non-english-words" class="headerlink" title="stem non-english words"></a>stem non-english words</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># languages can stem</div><div class="line">from nltk.stem import SnowballStemmer</div><div class="line">print(SnowballStemmer.languages</div><div class="line">from nltk.stem import SnowballStemmer</div><div class="line">french_stemmer = SnowballStemmer(&apos;french&apos;)</div><div class="line">print(french_stemmer.stem(&quot;French word&quot;))</div></pre></td></tr></table></figure>
+<h4 id="lemmatize-words-using-word-net-more-accurate-than-stem"><a href="#lemmatize-words-using-word-net-more-accurate-than-stem" class="headerlink" title="lemmatize words using word net (more accurate than stem)"></a>lemmatize words using word net (more accurate than stem)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># define a proposed type of word</div><div class="line">from nltk.stem import WordNetLemmatizer</div><div class="line">lemmatizer = WordNetLemmatizer()</div><div class="line">print(lemmatizer.lemmatize(&apos;playing&apos;, pos=&quot;v&quot;))</div><div class="line">print(lemmatizer.lemmatize(&apos;playing&apos;, pos=&quot;n&quot;))</div><div class="line">print(lemmatizer.lemmatize(&apos;playing&apos;, pos=&quot;a&quot;))</div><div class="line">print(lemmatizer.lemmatize(&apos;playing&apos;, pos=&quot;r&quot;))</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/Sentiment-Analysis/" rel="tag"># Sentiment Analysis</a>
+          
+            <a href="/tags/NLTK/" rel="tag"># NLTK</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/04/Reading-List-October/" rel="next" title="Reading List October|写给无神论者:宗教对世俗生活的意义 (阿兰·德波顿)">
+                <i class="fa fa-chevron-left"></i> Reading List October|写给无神论者:宗教对世俗生活的意义 (阿兰·德波顿)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/and.jpg"
+               alt="Izzy Qiu" />
+          <p class="site-author-name" itemprop="name">Izzy Qiu</p>
+           
+              <p class="site-description motion-element" itemprop="description">Coding | Life | Music | Travel</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yzziqiu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="yisiqiu dot izzy at gmail dot com" target="_blank" title="E-mail">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      E-mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NLTK"><span class="nav-number">1.</span> <span class="nav-text">NLTK</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tokenize-Text-Using-Pure-Python"><span class="nav-number">1.1.</span> <span class="nav-text">Tokenize Text Using Pure Python</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#crawl-webpage"><span class="nav-number"></span> <span class="nav-text">crawl webpage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Count-Word-Frequency"><span class="nav-number">0.1.</span> <span class="nav-text">Count Word Frequency</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#calculate-frequency-using-FreqDist"><span class="nav-number"></span> <span class="nav-text">calculate frequency using FreqDist()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Remove-Stop-Words-Using-NLTK"><span class="nav-number">0.1.</span> <span class="nav-text">Remove Stop Words Using NLTK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tokenize-the-text-we-got"><span class="nav-number">0.2.</span> <span class="nav-text">Tokenize the text we got</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-PunktSentenceTokenizer"><span class="nav-number"></span> <span class="nav-text">use PunktSentenceTokenizer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tokenize-non-english-languages-text"><span class="nav-number">0.1.</span> <span class="nav-text">tokenize non-english languages text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#finding-synonyms-wordnet-similar"><span class="nav-number">0.2.</span> <span class="nav-text">finding synonyms wordnet (similar)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#finding-synonyms-wordnet-opposite"><span class="nav-number">0.3.</span> <span class="nav-text">finding synonyms wordnet (opposite)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stemming-word"><span class="nav-number">0.4.</span> <span class="nav-text">stemming word</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stem-non-english-words"><span class="nav-number">0.5.</span> <span class="nav-text">stem non-english words</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lemmatize-words-using-word-net-more-accurate-than-stem"><span class="nav-number">0.6.</span> <span class="nav-text">lemmatize words using word net (more accurate than stem)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Izzy Qiu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
